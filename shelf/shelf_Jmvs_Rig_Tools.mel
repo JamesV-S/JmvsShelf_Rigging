@@ -1,0 +1,1478 @@
+global proc shelf_Jmvs_Rig_Tools () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "fixSceneM" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "FixM" 
+        -overlayLabelColor 1 1 0 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\n\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport fixSceneM\nimportlib.reload(fixSceneM)\nfixSceneM.fixSccene()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "LoadScriptEditor" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "SptEd" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "ScriptEditor" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Get_PY_file_path" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "PY_Path" 
+        -overlayLabelColor 0.9716 1 0 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "zoom.png" 
+        -image1 "zoom.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/mdls_scripts/PYQT_scripts'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n#-----------------------------\n\nimport Get_module_path_PYQT\nimportlib.reload(Get_module_path_PYQT)\nGet_module_path_PYQT.main()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "sets up empty groups for a rig hierarchy" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "rigGrp" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "rigGrp" 
+        -overlayLabelColor 1 0 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "folder-new.png" 
+        -image1 "folder-new.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport rig_scene_grp\nimportlib.reload(rig_scene_grp)\nrig_scene_grp.parent_hi_groups()\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Freeze_all_transforms" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "freeze_all_values" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "frz_All" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 1 1 1 0.5 
+        -image "FreezeTransform.png" 
+        -image1 "FreezeTransform.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"path set to {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport Frz_trans\nimportlib.reload(Frz_trans)\nFrz_trans.freeze_tans()\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "freeze's only the rotations of a selection " 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "freeze_rotations" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Frz_Rot" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 1 1 1 0.5 
+        -image "freezeSelected.png" 
+        -image1 "freezeSelected.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\n\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport Frz_rot\nimportlib.reload(Frz_rot)\nFrz_rot.freeze_rot()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 1
+        -flexibleWidthValue 32
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "creates a nurbs circle with 8 sections on the x axis" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "newCircle" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "newCtl" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport new_cv_circle\nimportlib.reload(new_cv_circle)\nnew_cv_circle.nurbsCircle()\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "shows the cv's on a selected curve" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "dispCV" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "dispCV" 
+        -overlayLabelColor 0 0 1 
+        -overlayLabelBackColor 1 1 1 0.8 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport dispCV\nimportlib.reload(dispCV)\ndispCV.displayCVs()\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "crv turns blue" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cvBlue" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrvB" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 1 1 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_blue\nimportlib.reload(cv_blue)\ncv_blue.override_color_blu()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "turns crv yellow" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cvYellow" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrvY" 
+        -overlayLabelColor 0 0 0 
+        -overlayLabelBackColor 1 1 0 1 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_yellow\nimportlib.reload(cv_yellow)\ncv_yellow.override_col_yel()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "crv turns red" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cvRed" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrvR" 
+        -overlayLabelColor 0 0 0 
+        -overlayLabelBackColor 1 0 0 1 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_red\nimportlib.reload(cv_red)\ncv_red.override_color_red()\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cvLightB" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrvLB" 
+        -overlayLabelColor 0 0 0 
+        -overlayLabelBackColor 0 1 1 1 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_lightBlue\nimportlib.reload(cv_lightBlue)\ncv_lightBlue.override_col_lightBlue()\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "control_setup_tool" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "control_setup_tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Ctrl_TL" 
+        -overlayLabelColor 0 1 1 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\n#from Jmvs_letter_driver_script import find_driver_letter\n#importlib.reload(find_driver_letter)\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/Jmvs_ctrl_setup_tool/ctrl_setup_class'\nprint(custom_path)\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport Jmvs_PYQT_ctrl_setup\nimportlib.reload(Jmvs_PYQT_ctrl_setup)\nJmvs_PYQT_ctrl_setup.main()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Creates " 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cLocs" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "cLocs" 
+        -overlayLabelColor 0 1 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cLocs\nimportlib.reload(cLocs)\ncLocs.createLocator()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "slHierarchy" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "slHi" 
+        -overlayLabelColor 0.359 1 0.359 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport slHi\nimportlib.reload(slHi)\nslHi.selectHi()\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "end_r_Pref" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "end_r_Pref" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "r_Pref" 
+        -overlayLabelColor 0 0 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport end_r_pref\nimportlib.reload(end_r_pref)\nend_r_pref.end_r_prefix()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "end_l_Pref" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "l_Pref" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport end_l_prefix\nimportlib.reload(end_l_prefix)\nend_l_prefix.endPrefix()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "skn_pref" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "sknPref" 
+        -overlayLabelColor 0.3333 0.3865 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport skn_prefix\nimportlib.reload(skn_prefix)\n\nskn_prefix.front_skn_prefix()\n\n\n\n\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cstm_attr_tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Attr" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "attributes.png" 
+        -image1 "attributes.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_PYQT'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#----------------------------\n\n# Import the UI setup module after updating sys.path\nimport jmvs_UIsetup_create_custom_attribute_tool\nimportlib.reload(jmvs_UIsetup_create_custom_attribute_tool)\njmvs_UIsetup_create_custom_attribute_tool.main()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "delete_attribute" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "DL_attr" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_PYQT' \nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport jmvs_UIsetup_delete_attribute_tool\nimportlib.reload(jmvs_UIsetup_delete_attribute_tool)\njmvs_UIsetup_delete_attribute_tool.main()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Add_prefix" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Add_Pref" 
+        -overlayLabelColor 1 0.5315 0 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "addBookmark.png" 
+        -image1 "addBookmark.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/prefix_tools/Prefix_Ui_tools/prefix_run_class' # My_RIGGING\\JmvsSCRIPTS\\JMVS_Working_Scripts\\JMVS_Rigging_Tools\\prefix_tools\\Prefix_Ui_tools\\ui_scripts\n#another_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/prefix_tools/Prefix_Ui_tools/ui_scripts' \nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n#-----------------------------\n\nimport Jmvs_UIsetup_Addprefix_tool\nimportlib.reload(Jmvs_UIsetup_Addprefix_tool)\nJmvs_UIsetup_Addprefix_tool.main()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Remove_prefix" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Rmv_Pref" 
+        -overlayLabelColor 0.893226 0 0 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "noAccess.png" 
+        -image1 "noAccess.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/prefix_tools/Prefix_Ui_tools/prefix_run_class' # My_RIGGING\\JmvsSCRIPTS\\JMVS_Working_Scripts\\JMVS_Rigging_Tools\\prefix_tools\\Prefix_Ui_tools\\ui_scripts\n#another_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/prefix_tools/Prefix_Ui_tools/ui_scripts' \nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n#-----------------------------\n\nimport Jmvs_UIsetup_Removeprefix_tool\nimportlib.reload(Jmvs_UIsetup_Removeprefix_tool)\nJmvs_UIsetup_Removeprefix_tool.main()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "renames a selection with enumerated end prefix's" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Rename_selection" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "RnmSel" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\n\ncustom_path = f'{A_driver}My_RIGGING\\\\JmvsSCRIPTS\\\\JMVS_Working_Scripts\\\\JMVS_Rigging_Tools\\\\prefix_tools\\\\Prefix_Ui_tools\\\\prefix_run_class'\nsys.path.append(custom_path)\n\nimport Jmvs_UIsetup_newName_tool\nimportlib.reload(Jmvs_UIsetup_newName_tool)\nJmvs_UIsetup_newName_tool.main()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "renames any & all duplicated names in the scene" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "rename_duplicates" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "RnmDupe" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "rename.png" 
+        -image1 "rename.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = driver.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/prefix_tools' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport rename_duplicates\nimportlib.reload(rename_duplicates)\nrename_duplicates.renameDuplicates()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "re-parent_objects" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "reP_sl" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "parent.png" 
+        -image1 "parent.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/Outliner_organisation'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport Re_parent_objects\nimportlib.reload(Re_parent_objects)\nRe_parent_objects.re_parent_objects()\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Cr_ofst_grp" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Ofst_grp" 
+        -overlayLabelColor 0 1 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/ControlCreation' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport offset_grp_to_zero_out as ofst_grp\nimportlib.reload(ofst_grp)\nofst_grp.ofst_grp_to_zero()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "re-parent_ofst_grps" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "reP_Ofst" 
+        -overlayLabelColor 0 0.961533 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "parent.png" 
+        -image1 "parent.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/Outliner_organisation' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport Re_parent_ofst_grps\nimportlib.reload(Re_parent_ofst_grps)\nRe_parent_ofst_grps.Re_parent_Ofset_grps()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "matchesTransform from 1 or multiple objects to last selected" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "mTrans" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "mTrans" 
+        -overlayLabelColor 1 0.423083 0 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport mTrans\nimportlib.reload(mTrans)\nmTrans.matchsTransform()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "rnm_MT" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "rnm_MT" 
+        -overlayLabelColor 1 0.4809 0 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport rename_mTrans_02\nimportlib.reload(rename_mTrans_02)\nrename_mTrans_02.rnm_mTrans()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "localRotAxes" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "LRA" 
+        -overlayLabelColor 0.147651 0.496644 0.0875507 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport localRotAxes\nimportlib.reload(localRotAxes)\nlocalRotAxes.setAxisDisplay()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Sel rig joint root!" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Create_skn_jnts_from_rig" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrSknJnts" 
+        -overlayLabelColor 0.3333 0.3865 1 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport cr_sknJnts_from_rigJntsSel\nimportlib.reload(cr_sknJnts_from_rigJntsSel)\ncr_sknJnts_from_rigJntsSel.produce_sknJnts_from_rig_jnts_sel()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Constrain a selection of controls & joints together" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Constran_selected_joints" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Con_jnts_sl" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "activeDeselectedAnimLayer.png" 
+        -image1 "activeDeselectedAnimLayer.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/SkinBinding_Editing' \nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport ConstrainJnts_01\nimportlib.reload(ConstrainJnts_01)\nConstrainJnts_01.p_constrain()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Selects the joints attatched to a skin" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Sel_skincluster" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "SelClsJnts" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/SkinBinding_Editing' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport sel_skn_cluster_01\nimportlib.reload(sel_skn_cluster_01)\nsel_skn_cluster_01.select_skinCluster()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Unbind_skincluster" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Unbind_Skn" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 1 0 0 0.5 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/SkinBinding_Editing' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport Unbind_skinCluster_01\nimportlib.reload(Unbind_skinCluster_01)\nUnbind_skinCluster_01.Unbind_skin()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 52
+        -enable 1
+        -width 55
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Sel_prnt_con" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Sl_prnt_con" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0.108939 0.108939 0.108939 1 
+        -image "arrowDown.png" 
+        -image1 "arrowDown.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/SkinBinding_Editing' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport sl_prntCon_frm_jnts_01\nimportlib.reload(sl_prntCon_frm_jnts_01)\nsl_prntCon_frm_jnts_01.sel_Parent_Con_from_jnts()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 52
+        -enable 1
+        -width 55
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Sel_aim_con" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Sl_aim_con" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0.129412 0.129412 0.129412 1 
+        -image "arrowDown.png" 
+        -image1 "arrowDown.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/SkinBinding_Editing' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport sl_aimCon_frm_jnts_01\nimportlib.reload(sl_aimCon_frm_jnts_01)\nsl_aimCon_frm_jnts_01.sel_Aim_Con_from_jnts()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 52
+        -enable 1
+        -width 55
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Multi_constrain" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Multi_Con" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "arrowDown.png" 
+        -image1 "arrowDown.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport The_multi_constrain\nimportlib.reload(The_multi_constrain)\nThe_multi_constrain.Multi_constrain()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "orientJnt" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "owJnt" 
+        -overlayLabelColor 0.767996 0 1 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport orient_jnt\nimportlib.reload(orient_jnt)\norient_jnt.orient_last_joint()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 39
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Hide_joints" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Hide_joints" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "H_jnts" 
+        -overlayLabelColor 0.8123 0 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "E:/Logo/logo_cog.jpeg" 
+        -image1 "E:/Logo/logo_cog.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"path set to {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport hide_jnts_View\nimportlib.reload(hide_jnts_View)\nhide_jnts_View.H_jnts()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "rev_Loc" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "revLoc" 
+        -overlayLabelColor 1 0 1 
+        -overlayLabelBackColor 0 0 0 1 
+        -image "locator.png" 
+        -image1 "locator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/locator_file_imports/rev_loc_template.mb'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\nfile_type = cmds.file(custom_path, i=1)\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "bakes transforms to OPM tab + orientJnt" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "OPM" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "OPM" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport OPM\nimportlib.reload(OPM)\nOPM.OpmCleanTool()\n\n#-----------------------------\ndef get_module_path(module_name):\n    spec = importlib.util.find_spec(module_name)\n    if spec is None:\n        return \"Module not found\"\n    \n    return os.path.dirname(spec.origin)\n\n# Example: Get the path of the 'os' module\nmodule_name = 'OPM'\nmodule_path = get_module_path(module_name)\nprint(f\"The path of the '{module_name}' module is: {module_path}\")\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 41
+        -enable 1
+        -width 44
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Make_identity" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Identity" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "recycle_red.png" 
+        -image1 "recycle_red.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools' #JMVS_Working_Scripts\\JMVS_Rigging_Tools\\ControlCreation\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport set_OPM_Identity\nimportlib.reload(set_OPM_Identity)\nset_OPM_Identity.reset_obj_identity()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+
+} 
