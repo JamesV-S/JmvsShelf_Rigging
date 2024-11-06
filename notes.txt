@@ -1,0 +1,7 @@
+With the new shelf repo's Rigging, Modelling.
+
+How do I need to use batch scripts?
+
+Need a batch script to copy the repo. 
+In that same batch: What else Do I need to setup?
+Shelf file, workspace, mayaEnv. (DON'T need the driver letter anymore!)
