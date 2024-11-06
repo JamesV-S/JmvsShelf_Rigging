@@ -19,6 +19,54 @@ global proc shelf_Jmvs_Rig_Tools () {
         -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -align "center" 
+        -label "Github_url" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Repo" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 0 0 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/github-logo.png" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/github-logo.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import webbrowser\nwebbrowser.open(\"https://github.com/JamesV-S/JmvsShelf_Rigging\")" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 34
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
         -label "fixSceneM" 
         -labelOffset 0
         -rotation 0
@@ -34,7 +82,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\n\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport fixSceneM\nimportlib.reload(fixSceneM)\nfixSceneM.fixSccene()\n" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import fixSceneM\n\nimportlib.reload(fixSceneM)\nfixSceneM.fixSccene()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -104,7 +152,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/mdls_scripts/PYQT_scripts'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n#-----------------------------\n\nimport Get_module_path_PYQT\nimportlib.reload(Get_module_path_PYQT)\nGet_module_path_PYQT.main()" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import data\n# from data import PYQT_scripts\n#-----------------------------\n\nimport Get_module_path_PYQT\nimportlib.reload(Get_module_path_PYQT)\nGet_module_path_PYQT.main()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -139,7 +187,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport rig_scene_grp\nimportlib.reload(rig_scene_grp)\nrig_scene_grp.parent_hi_groups()\n\n\n" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import rig_scene_grp\n\nimportlib.reload(rig_scene_grp)\nrig_scene_grp.parent_hi_groups()\n\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -174,7 +222,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"path set to {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport Frz_trans\nimportlib.reload(Frz_trans)\nFrz_trans.freeze_tans()\n\n\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import other\n\n#-----------------------------\nimport Frz_trans\nimportlib.reload(Frz_trans)\nFrz_trans.freeze_tans()\n\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -209,7 +257,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\n\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\n\nimport Frz_rot\nimportlib.reload(Frz_rot)\nFrz_rot.freeze_rot()\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import other\n\n#-----------------------------\n\nimport Frz_rot\nimportlib.reload(Frz_rot)\nFrz_rot.freeze_rot()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -244,7 +292,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport new_cv_circle\nimportlib.reload(new_cv_circle)\nnew_cv_circle.nurbsCircle()\n\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import control\n\n#-----------------------------\nimport new_cv_circle\nimportlib.reload(new_cv_circle)\nnew_cv_circle.nurbsCircle()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -254,7 +302,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -274,12 +322,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "dispCV" 
         -overlayLabelColor 0 0 1 
         -overlayLabelBackColor 1 1 1 0.8 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport dispCV\nimportlib.reload(dispCV)\ndispCV.displayCVs()\n\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import control\n\n#-----------------------------\nimport dispCV\nimportlib.reload(dispCV)\ndispCV.displayCVs()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -314,7 +362,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_blue\nimportlib.reload(cv_blue)\ncv_blue.override_color_blu()\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import control\n\n\n#-----------------------------\nimport cv_blue\nimportlib.reload(cv_blue)\ncv_blue.override_color_blu()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -349,7 +397,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_yellow\nimportlib.reload(cv_yellow)\ncv_yellow.override_col_yel()\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import control\n\n\n#-----------------------------\nimport cv_yellow\nimportlib.reload(cv_yellow)\ncv_yellow.override_col_yel()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -384,7 +432,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_red\nimportlib.reload(cv_red)\ncv_red.override_color_red()\n\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import control\n\n\n#-----------------------------\nimport cv_red\nimportlib.reload(cv_red)\ncv_red.override_color_red()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -419,7 +467,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cv_lightBlue\nimportlib.reload(cv_lightBlue)\ncv_lightBlue.override_col_lightBlue()\n\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import control\n\n\n#-----------------------------\nimport cv_lightBlue\nimportlib.reload(cv_lightBlue)\ncv_lightBlue.override_col_lightBlue()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -464,7 +512,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -484,12 +532,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "cLocs" 
         -overlayLabelColor 0 1 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport cLocs\nimportlib.reload(cLocs)\ncLocs.createLocator()" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import cLocs\n\nimportlib.reload(cLocs)\ncLocs.createLocator()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -499,7 +547,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -519,12 +567,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "slHi" 
         -overlayLabelColor 0.359 1 0.359 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport slHi\nimportlib.reload(slHi)\nslHi.selectHi()\n\n\n" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import other\n\n\n#-----------------------------\nimport slHi\nimportlib.reload(slHi)\nslHi.selectHi()\n\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -534,7 +582,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -554,12 +602,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "r_Pref" 
         -overlayLabelColor 0 0 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"module imported from {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport end_r_pref\nimportlib.reload(end_r_pref)\nend_r_pref.end_r_prefix()" 
+        -command "\nimport importlib\n\nfrom JmvsShelf_Rigging.scripts import prefix\n\n\n#-----------------------------\nimport end_r_pref\nimportlib.reload(end_r_pref)\nend_r_pref.end_r_prefix()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -569,7 +617,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -589,8 +637,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "l_Pref" 
         -overlayLabelColor 1 0 0 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -604,7 +652,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -624,8 +672,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "sknPref" 
         -overlayLabelColor 0.3333 0.3865 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -674,7 +722,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -694,8 +742,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "DL_attr" 
         -overlayLabelColor 0.8 0.8 0.8 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -779,7 +827,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -799,8 +847,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "RnmSel" 
         -overlayLabelColor 1 1 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -954,7 +1002,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -974,8 +1022,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "mTrans" 
         -overlayLabelColor 1 0.423083 0 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -989,7 +1037,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1009,8 +1057,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "rnm_MT" 
         -overlayLabelColor 1 0.4809 0 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -1024,7 +1072,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1044,8 +1092,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "LRA" 
         -overlayLabelColor 0.147651 0.496644 0.0875507 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -1304,7 +1352,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1324,8 +1372,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "owJnt" 
         -overlayLabelColor 0.767996 0 1 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -1339,7 +1387,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1359,12 +1407,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "H_jnts" 
         -overlayLabelColor 0.8123 0 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"path set to {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport hide_jnts_View\nimportlib.reload(hide_jnts_View)\nhide_jnts_View.H_jnts()" 
+        -command "import sys\nimport importlib\n\nfrom Jmvs_letter_driver_script import find_driver_letter\nimportlib.reload(find_driver_letter)\n\nA_driver = find_driver_letter.get_folder_letter(\"Jmvs_current_file_path\")\ncustom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/shelf_tools'\nprint(f\"path set to {custom_path}\")\nsys.path.append(custom_path)\n\n#-----------------------------\nimport hide_jnts\nimportlib.reload(hide_jnts)\nhide_jnts.H_jnts()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1

@@ -5,4 +5,4 @@ def fixSccene():
     cmds.ikHandleDisplayScale(5)
     cmds.manipPivot(mto=0)
 
-    print("Scene Fixed")
+    print("Scene Fixed from SSD")
