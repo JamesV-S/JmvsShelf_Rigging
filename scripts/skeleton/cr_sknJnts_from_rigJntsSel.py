@@ -4,10 +4,10 @@ import maya.cmds as cmds
 import importlib
 
 #-------------------------------------
-from JmvsShelf_Rigging.scripts.skeleton import remove_prefix_returned_list_only as rmv_pref
+from JmvsShelf_Rigging.scripts.skeleton import remove_prefix_returned_list_only
 
 # import remove_prefix_returned_list_only as rmv_pref
-importlib.reload(rmv_pref)
+importlib.reload(remove_prefix_returned_list_only)
 
 def produce_sknJnts_from_rig_jnts_sel():
     sel = cmds.ls(sl=1, type='joint')
@@ -24,7 +24,7 @@ def produce_sknJnts_from_rig_jnts_sel():
     # Create skn joints from it!
     jnt_name = "jnt_skn_"
     # need a list of the selected joints without their first two prefix!
-    base_names_list = rmv_pref.remove_prefix_tool(jntList, 1, 0,  "jnt_rig", 1)
+    base_names_list = remove_prefix_returned_list_only.remove_prefix_tool(jntList, 1, 0,  "jnt_rig", 1)
     print(base_names_list)
     
     cmds.select(cl=1)
