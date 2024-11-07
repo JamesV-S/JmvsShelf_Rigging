@@ -5,7 +5,16 @@ import importlib
 
 #-------------------------------------
 # Set the path for the Module
-from JmvsShelf_Rigging.scripts.skeleton import remove_prefix_returned_list_only as rmv_pref
+from Jmvs_letter_driver_script import find_driver_letter
+importlib.reload(find_driver_letter)
+
+A_driver = find_driver_letter.get_folder_letter("Jmvs_current_file_path")
+custom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/prefix_tools'
+print(f"module path set to {custom_path}")
+sys.path.append(custom_path)
+#-------------------------------------
+
+import remove_prefix_returned_list_only as rmv_pref
 importlib.reload(rmv_pref)
 
 def produce_sknJnts_from_rig_jnts_sel():
