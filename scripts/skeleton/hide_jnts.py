@@ -9,4 +9,3 @@ def H_jnts():
             cmds.setAttr(f"{joints[x]}.visibility", 0)
         else:
             cmds.setAttr(f"{joints[x]}.visibility", 1)
-    print("HIDE JOINTS REPO")
