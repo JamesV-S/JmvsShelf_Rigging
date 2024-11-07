@@ -24,6 +24,7 @@
         -useAlpha 1
         -font "plainLabelFont" 
         -imageOverlayLabel "Repo" 
+        -imageOverlayLabel "Repo" 
         -overlayLabelColor 1 1 1 
         -overlayLabelBackColor 0 0 0 0 
         -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/github-logo.png" 
