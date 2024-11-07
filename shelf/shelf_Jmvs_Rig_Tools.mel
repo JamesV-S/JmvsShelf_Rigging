@@ -7,7 +7,7 @@ global proc shelf_Jmvs_Rig_Tools () {
     shelfButton
         -enableCommandRepeat 1
         -flexibleWidthType 3
-        -flexibleWidthValue 32
+        -flexibleWidthValue 33
         -enable 1
         -width 36
         -height 34
@@ -1580,7 +1580,7 @@ global proc shelf_Jmvs_Rig_Tools () {
     shelfButton
         -enableCommandRepeat 1
         -flexibleWidthType 3
-        -flexibleWidthValue 41
+        -flexibleWidthValue 32
         -enable 1
         -width 44
         -height 34
@@ -1607,7 +1607,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import OPM\n\nimportlib.reload(set_OPM_Identity)\nset_OPM_Identity.reset_obj_identity()" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import set_OPM_Identity\n\nimportlib.reload(set_OPM_Identity)\nset_OPM_Identity.reset_obj_identity()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
