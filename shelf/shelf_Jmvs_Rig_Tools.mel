@@ -47,7 +47,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -200,7 +200,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -270,7 +270,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_rot\n\nimportlib.reload(Frz_rot)\nFrz_rot.freeze_rot()\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_rot\n\nimportlib.reload(Frz_rot)\nFrz_rot.freeze_rot()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -305,7 +305,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import new_cv_circle\n\nimportlib.reload(new_cv_circle)\nnew_cv_circle.nurbsCircle()\n\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import new_cv_circle\n\nimportlib.reload(new_cv_circle)\nnew_cv_circle.nurbsCircle()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -315,7 +315,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -335,12 +335,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "dispCV" 
         -overlayLabelColor 0 0 1 
         -overlayLabelBackColor 1 1 1 0.8 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import dispCV\n\nimportlib.reload(dispCV)\ndispCV.displayCVs()\n\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import dispCV\n\nimportlib.reload(dispCV)\ndispCV.displayCVs()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -410,7 +410,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_yellow\n\nimportlib.reload(cv_yellow)\ncv_yellow.override_col_yel()\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_yellow\n\nimportlib.reload(cv_yellow)\ncv_yellow.override_col_yel()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -445,7 +445,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_red\n\nimportlib.reload(cv_red)\ncv_red.override_color_red()\n\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_red\n\nimportlib.reload(cv_red)\ncv_red.override_color_red()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -515,7 +515,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import Jmvs_PYQT_ctrl_setup\n\nimportlib.reload(Jmvs_PYQT_ctrl_setup)\nJmvs_PYQT_ctrl_setup.main()\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import Jmvs_PYQT_ctrl_setup\n\nimportlib.reload(Jmvs_PYQT_ctrl_setup)\nJmvs_PYQT_ctrl_setup.main()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -528,7 +528,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -538,7 +538,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -558,12 +558,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "cLocs" 
         -overlayLabelColor 0 1 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import cLocs\n\nimportlib.reload(cLocs)\ncLocs.createLocator()\n\n\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import cLocs\n\nimportlib.reload(cLocs)\ncLocs.createLocator()\n\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -573,7 +573,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -593,12 +593,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "slHi" 
         -overlayLabelColor 0.359 1 0.359 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.hierarchy import slHi\n\nimportlib.reload(slHi)\nslHi.selectHi()\n\n\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.hierarchy import slHi\n\nimportlib.reload(slHi)\nslHi.selectHi()\n\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -608,7 +608,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -628,12 +628,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "r_Pref" 
         -overlayLabelColor 0 0 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_r_pref\n\nimportlib.reload(end_r_pref)\nend_r_pref.end_r_prefix()"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_r_pref\n\nimportlib.reload(end_r_pref)\nend_r_pref.end_r_prefix()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -643,7 +643,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -663,12 +663,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "l_Pref" 
         -overlayLabelColor 1 0 0 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_l_prefix\n\nimportlib.reload(end_l_prefix)\nend_l_prefix.endPrefix()"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_l_prefix\n\nimportlib.reload(end_l_prefix)\nend_l_prefix.endPrefix()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -678,7 +678,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -698,8 +698,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "sknPref" 
         -overlayLabelColor 0.3333 0.3865 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -716,7 +716,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -761,7 +761,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -781,8 +781,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "DL_attr" 
         -overlayLabelColor 0.8 0.8 0.8 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -799,7 +799,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -879,7 +879,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -899,8 +899,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "RnmSel" 
         -overlayLabelColor 1 1 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/cog_logo_black.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -939,7 +939,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import rename_duplicates\n\nimportlib.reload(rename_duplicates)\nrename_duplicates.renameDuplicates()"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import rename_duplicates\n\nimportlib.reload(rename_duplicates)\nrename_duplicates.renameDuplicates()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -952,7 +952,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -1067,7 +1067,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1087,12 +1087,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "mTrans" 
         -overlayLabelColor 1 0.423083 0 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import mTrans\n\nimportlib.reload(mTrans)\nmTrans.matchsTransform()"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import mTrans\n\nimportlib.reload(mTrans)\nmTrans.matchsTransform()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1102,7 +1102,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1122,12 +1122,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "rnm_MT" 
         -overlayLabelColor 1 0.4809 0 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import rename_mTrans_02\n\nimportlib.reload(rename_mTrans_02)\nrename_mTrans_02.rnm_mTrans()"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import rename_mTrans_02\n\nimportlib.reload(rename_mTrans_02)\nrename_mTrans_02.rnm_mTrans()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1137,7 +1137,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1157,12 +1157,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "LRA" 
         -overlayLabelColor 0.147651 0.496644 0.0875507 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import localRotAxes\n\nimportlib.reload(localRotAxes)\nlocalRotAxes.setAxisDisplay()\n"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import localRotAxes\n\nimportlib.reload(localRotAxes)\nlocalRotAxes.setAxisDisplay()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1175,7 +1175,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -1280,7 +1280,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import sel_skn_cluster_01\n\nimportlib.reload(sel_skn_cluster_01)\nsel_skn_cluster_01.select_skinCluster()"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import sel_skn_cluster_01\n\nimportlib.reload(sel_skn_cluster_01)\nsel_skn_cluster_01.select_skinCluster()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1315,7 +1315,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import Unbind_skinCluster_01\n\nimportlib.reload(Unbind_skinCluster_01)\nUnbind_skinCluster_01.Unbind_skin()"
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import Unbind_skinCluster_01\n\nimportlib.reload(Unbind_skinCluster_01)\nUnbind_skinCluster_01.Unbind_skin()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1430,7 +1430,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1450,8 +1450,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "owJnt" 
         -overlayLabelColor 0.767996 0 1 
         -overlayLabelBackColor 0 0 0 1 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -1465,7 +1465,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 35
         -height 34
         -manage 1
         -visible 1
@@ -1485,8 +1485,8 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "H_jnts" 
         -overlayLabelColor 0.8123 0 1 
         -overlayLabelBackColor 0 0 0 0.5 
-        -image "E:/Logo/logo_cog.jpeg" 
-        -image1 "E:/Logo/logo_cog.jpeg" 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/images/logo_cog_navy.jpeg" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
@@ -1503,7 +1503,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -visible 1
         -preventOverride 0
         -enableBackground 0
-        -backgroundColor 0 0 0
+        -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
@@ -1539,7 +1539,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -marginWidth 0
         -marginHeight 1
         -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import OPM\n\nimportlib.reload(OPM)\nOPM.OpmCleanTool()\n\n" 
-        -sourceType "python" -sourceType "python" 
+        -sourceType "python" 
         -commandRepeatable 1
         -flat 1
     ;
@@ -1608,7 +1608,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import set_OPM_Identity\n\nimportlib.reload(set_OPM_Identity)\nset_OPM_Identity.reset_obj_identity()"  
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import set_OPM_Identity\n\nimportlib.reload(set_OPM_Identity)\nset_OPM_Identity.reset_obj_identity()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
