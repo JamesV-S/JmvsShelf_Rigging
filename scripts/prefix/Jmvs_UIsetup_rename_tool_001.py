@@ -130,7 +130,7 @@ class rename_obj_interface(QWidget):
 
 
     def new_name(self):
-        new_name_input = self.newName_lineEdit.text()
+        new_name_input = self.lineEdit.text()
         self.new_name_str= str(new_name_input)
         print(f"new_name_input: {self.new_name_str}")
         # return new_name_str
