@@ -869,7 +869,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import Jmvs_UIsetup_Removeprefix_tool\n\nimportlib.reload(Jmvs_UIsetup_Removeprefix_tool)\nJmvs_UIsetup_Removeprefix_tool.main()" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import Jmvs_UIsetup_Rmvprefix_tool_001\n\nimportlib.reload(Jmvs_UIsetup_Rmvprefix_tool_001)\nJmvs_UIsetup_Rmvprefix_tool_001.main()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -904,7 +904,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import Jmvs_UIsetup_newName_tool\n\nimportlib.reload(Jmvs_UIsetup_newName_tool)\nJmvs_UIsetup_newName_tool.main()" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import Jmvs_UIsetup_rename_tool_001\n\nimportlib.reload(Jmvs_UIsetup_rename_tool_001)\nJmvs_UIsetup_rename_tool_001.main()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
