@@ -543,194 +543,6 @@ global proc shelf_Jmvs_Rig_Tools () {
         -manage 1
         -visible 1
         -preventOverride 0
-        -annotation "Creates " 
-        -enableBackground 0
-        -backgroundColor 0 0 0 
-        -highlightColor 0.321569 0.521569 0.65098 
-        -align "center" 
-        -label "cLocs" 
-        -labelOffset 0
-        -rotation 0
-        -flipX 0
-        -flipY 0
-        -useAlpha 1
-        -font "plainLabelFont" 
-        -imageOverlayLabel "cLocs" 
-        -overlayLabelColor 0 1 1 
-        -overlayLabelBackColor 0 0 0 0.5 
-        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -style "iconOnly" 
-        -marginWidth 0
-        -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import cLocs\n\nimportlib.reload(cLocs)\ncLocs.createLocator()\n\n\n" 
-        -sourceType "python" 
-        -commandRepeatable 1
-        -flat 1
-    ;
-    shelfButton
-        -enableCommandRepeat 1
-        -flexibleWidthType 3
-        -flexibleWidthValue 32
-        -enable 1
-        -width 35
-        -height 34
-        -manage 1
-        -visible 1
-        -preventOverride 0
-        -annotation "User Script" 
-        -enableBackground 0
-        -backgroundColor 0 0 0 
-        -highlightColor 0.321569 0.521569 0.65098 
-        -align "center" 
-        -label "slHierarchy" 
-        -labelOffset 0
-        -rotation 0
-        -flipX 0
-        -flipY 0
-        -useAlpha 1
-        -font "plainLabelFont" 
-        -imageOverlayLabel "slHi" 
-        -overlayLabelColor 0.359 1 0.359 
-        -overlayLabelBackColor 0 0 0 0.5 
-        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -style "iconOnly" 
-        -marginWidth 0
-        -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.hierarchy import slHi\n\nimportlib.reload(slHi)\nslHi.selectHi()\n\n\n" 
-        -sourceType "python" 
-        -commandRepeatable 1
-        -flat 1
-    ;
-    shelfButton
-        -enableCommandRepeat 1
-        -flexibleWidthType 3
-        -flexibleWidthValue 32
-        -enable 1
-        -width 35
-        -height 34
-        -manage 1
-        -visible 1
-        -preventOverride 0
-        -annotation "end_r_Pref" 
-        -enableBackground 0
-        -backgroundColor 0 0 0 
-        -highlightColor 0.321569 0.521569 0.65098 
-        -align "center" 
-        -label "end_r_Pref" 
-        -labelOffset 0
-        -rotation 0
-        -flipX 0
-        -flipY 0
-        -useAlpha 1
-        -font "plainLabelFont" 
-        -imageOverlayLabel "r_Pref" 
-        -overlayLabelColor 0 0 1 
-        -overlayLabelBackColor 0 0 0 0.5 
-        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -style "iconOnly" 
-        -marginWidth 0
-        -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_r_pref\n\nimportlib.reload(end_r_pref)\nend_r_pref.end_r_prefix()" 
-        -sourceType "python" 
-        -commandRepeatable 1
-        -flat 1
-    ;
-    shelfButton
-        -enableCommandRepeat 1
-        -flexibleWidthType 3
-        -flexibleWidthValue 32
-        -enable 1
-        -width 35
-        -height 34
-        -manage 1
-        -visible 1
-        -preventOverride 0
-        -annotation "User Script" 
-        -enableBackground 0
-        -backgroundColor 0 0 0 
-        -highlightColor 0.321569 0.521569 0.65098 
-        -align "center" 
-        -label "end_l_Pref" 
-        -labelOffset 0
-        -rotation 0
-        -flipX 0
-        -flipY 0
-        -useAlpha 1
-        -font "plainLabelFont" 
-        -imageOverlayLabel "l_Pref" 
-        -overlayLabelColor 1 0 0 
-        -overlayLabelBackColor 0 0 0 1 
-        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -style "iconOnly" 
-        -marginWidth 0
-        -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_l_prefix\n\nimportlib.reload(end_l_prefix)\nend_l_prefix.endPrefix()" 
-        -sourceType "python" 
-        -commandRepeatable 1
-        -flat 1
-    ;
-    shelfButton
-        -enableCommandRepeat 1
-        -flexibleWidthType 3
-        -flexibleWidthValue 32
-        -enable 1
-        -width 35
-        -height 34
-        -manage 1
-        -visible 1
-        -preventOverride 0
-        -annotation "User Script" 
-        -enableBackground 0
-        -backgroundColor 0 0 0 
-        -highlightColor 0.321569 0.521569 0.65098 
-        -align "center" 
-        -label "skn_pref" 
-        -labelOffset 0
-        -rotation 0
-        -flipX 0
-        -flipY 0
-        -useAlpha 1
-        -font "plainLabelFont" 
-        -imageOverlayLabel "sknPref" 
-        -overlayLabelColor 0.3333 0.3865 1 
-        -overlayLabelBackColor 0 0 0 0.5 
-        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
-        -style "iconOnly" 
-        -marginWidth 0
-        -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import skn_prefix\n\nimportlib.reload(skn_prefix)\nskn_prefix.front_skn_prefix()\n\n\n\n\n\n\n" 
-        -sourceType "python" 
-        -commandRepeatable 1
-        -flat 1
-    ;
-    separator
-        -enable 1
-        -width 10
-        -height 35
-        -manage 1
-        -visible 1
-        -preventOverride 0
-        -enableBackground 0
-        -backgroundColor 0 0 0 
-        -highlightColor 0.321569 0.521569 0.65098 
-        -style "shelf" 
-        -horizontal 0
-    ;
-    shelfButton
-        -enableCommandRepeat 1
-        -flexibleWidthType 3
-        -flexibleWidthValue 32
-        -enable 1
-        -width 35
-        -height 34
-        -manage 1
-        -visible 1
-        -preventOverride 0
         -annotation "User Script" 
         -enableBackground 0
         -backgroundColor 0 0 0 
@@ -944,6 +756,111 @@ global proc shelf_Jmvs_Rig_Tools () {
         -commandRepeatable 1
         -flat 1
     ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "end_L_Pref" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "L_Pref" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_l_prefix\n\nimportlib.reload(end_l_prefix)\nend_l_prefix.endPrefix()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "end_R_Pref" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "end_R_Pref" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "R_Pref" 
+        -overlayLabelColor 0 0 1 
+        -overlayLabelBackColor 1 1 1 0.5 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import end_r_pref\n\nimportlib.reload(end_r_pref)\nend_r_pref.end_r_prefix()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "skn_pref" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "sknPref" 
+        -overlayLabelColor 0.3333 0.3865 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.prefix import skn_prefix\n\nimportlib.reload(skn_prefix)\nskn_prefix.front_skn_prefix()\n\n\n\n\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
     separator
         -enable 1
         -width 10
@@ -956,6 +873,76 @@ global proc shelf_Jmvs_Rig_Tools () {
         -highlightColor 0.321569 0.521569 0.65098 
         -style "shelf" 
         -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Creates " 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cLocs" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "cLocs" 
+        -overlayLabelColor 0 1 1 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import cLocs\n\nimportlib.reload(cLocs)\ncLocs.createLocator()\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "slHierarchy" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "slHi" 
+        -overlayLabelColor 0.359 1 0.359 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.hierarchy import slHi\n\nimportlib.reload(slHi)\nslHi.selectHi()\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
     ;
     shelfButton
         -enableCommandRepeat 1
