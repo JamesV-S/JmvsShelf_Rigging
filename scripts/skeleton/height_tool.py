@@ -31,6 +31,9 @@ from JmvsShelf_Rigging.scripts.skeleton import height_tool
 importlib.reload(height_tool)
 height_tool.main()
 '''
+
+
+
 def delete_existing_ui(ui_name):
     if cmds.window(ui_name, exists=True):
         cmds.deleteUI(ui_name, window=True)
@@ -135,6 +138,7 @@ class height_tool_interface(QWidget):
         print(f"height_num_input: {self.height_num_int}")
         # return height_num_str
     
+
     def position_cube(self):
         # cr_cube
         top_loc_name = f"loc_height_cube_top_#"
@@ -149,12 +153,15 @@ class height_tool_interface(QWidget):
         
         # Calculate the translate Y position # 175.3
         translate_y = self.height_num_int - (1 / 2.0)  # Assuming the cube height is now 1 cm
+        
         '''
         Here's the breakdown:
         175.3 cm is the desired height for the top of the object.
         1 cm is the height of the object.
-        1 / 2.0 calculates the adjustment needed to position the center of a 1 cm object so its top reaches 175.3 cm.
-        This calculation sets the base of the object at 175.3 - 0.5, ensuring the top reaches exactly 175.3 cm.
+        1 / 2.0 calculates the adjustment needed to position the center 
+        of a 1 cm object so its top reaches 175.3 cm.
+        This calculation sets the base of the object at 175.3 - 0.5, 
+        ensuring the top reaches exactly 175.3 cm.
         '''
         # Apply the translation
         cmds.setAttr(f"{top_loc}.translateY", translate_y, lock=1)
@@ -176,53 +183,21 @@ class height_tool_interface(QWidget):
                 
         cmds.setAttr(f"{curve_name}.template", 1)
         cmds.select(cl=1)
-        
-
-        def guide_curve_connector(first_jnt, second_jnt):
-            '''
-            print(f"GUIDE CONNECTOR: {first_jnt}")
-            
-            fst_point_loc = cmds.xform(first_jnt ,q=1, ws=1, rp=1)
-            scnd_point_loc =  cmds.xform(second_jnt ,q=1, ws=1, rp=1)
-            
-            curve_name = f"crv_{first_jnt}"
-            cmds.curve(d=1, p=[fst_point_loc, scnd_point_loc], n=curve_name)
-
-            cluster_1 = cmds.cluster(f"{curve_name}.cv[0]", n=f"cluster_crv_{first_jnt}_cv0")
-            cluster_2 = cmds.cluster(f" {curve_name}.cv[1]", n=f"cluster_crv_{second_jnt}_cv0")
-            
-            cmds.parent(cluster_1, first_jnt)
-            cmds.parent(cluster_2, second_jnt)
-            print("Going to hid clusters & template the connector")
-            
-            for x in cmds.ls(typ="cluster"):
-                cmds.hide(f"{x}Handle")
-                cmds.setAttr(f"{x}Handle.hiddenInOutliner", True)
-                    
-            cmds.setAttr(f"{curve_name}.template", 1)
-            cmds.select(cl=1)
-
-            return curve_name
-            '''
-        # guide_curve_connector(top_loc_name, bttm_loc_name)
-
-    # Run the function
     
 
-    def apply_func(self):     
-        # rename the selected objects:
-        selection = cmds.ls(sl=True, type="transform")
-        print(f"selection = {selection}")
-        print(f"number of selecte ditems: {len(selection)}")
+    def set_units_to_centimeters():
+        # Set the linear unit to centimeters
+        cmds.currentUnit(linear='cm')
         
-        # get number of sel for undo function
-        self.num_of_sel = len(selection)
+        current_unit = cmds.currentUnit(query=True, linear=True)
+        print(f"Current linear unit: {current_unit}")
 
-        renamed_list = []
-        for index, obj in enumerate(selection):
-            new_obj_name = f"{self.height_num_str}{index}"
-            renamed_list.append(cmds.rename(obj, new_obj_name))
-        print(f"renamed list = {renamed_list}")
+
+    def apply_func(self):  
+        # get number of sel for undo function
+        print(f"Apply_func")
+        self.position_cube()
+        self.num_of_sel = 1
 
         # Re-enable the Undo button
         self.undo_btn.setEnabled(True)
@@ -249,34 +224,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-def set_units_to_centimeters():
-    # Set the linear unit to centimeters
-    cmds.currentUnit(linear='cm')
-    
-    current_unit = cmds.currentUnit(query=True, linear=True)
-    print(f"Current linear unit: {current_unit}")
-
-set_units_to_centimeters()
-
-
-def position_cube():
-    # Get the selected object
-    selected = cmds.ls(selection=True)
-    
-    if not selected:
-        cmds.error("No object selected. Please select a cube.")
-        return
-
-    cube = selected[0]
-    
-    # Set the cube's scale to 1 cm in height
-    cmds.setAttr(f"{cube}.scaleY", 1)
-    
-    # Calculate the translate Y position
-    translate_y = 175.3 - (1 / 2.0)  # Assuming the cube height is now 1 cm
-    
-    # Apply the translation
-    cmds.setAttr(f"{cube}.translateY", translate_y)
-
-# Run the function
-position_cube()
