@@ -1,0 +1,224 @@
+Alright, now I have a script working: (measurment_tool_002.py) "
+import maya.cmds as cmds
+import os
+import sys
+# Each measurment needs a 'root_parent'
+# 'root_parent' is used for me to place in maya where the clavicle begins,
+# the rest of the hierarcy will be set to the measurments from the dict's 
+# 'root_parent' should be in a grp!
+
+'''
+
+import importlib
+from JmvsShelf_Rigging.scripts.data import measurment_tool_001.py
+
+importlib.reload(measurment_tool_001.py)
+measurment_tool_001.py.jmvs_measurment_tool()
+'''
+
+class jmvs_measurment_tool():
+    def __init__(self):
+        
+
+        hand = {"calv_to_shld": 38.1, 
+            "shld_to_elbow": 66, 
+            "elbow_to_wrist": 64.516
+            }
+        self.place_locator_measurments(hand, "hand")
+
+    def connector_curve(self, top_loc, bttm_loc):
+        top_point_loc = cmds.xform(top_loc ,q=1, ws=1, rp=1)
+        bttm_point_loc =  cmds.xform(bttm_loc ,q=1, ws=1, rp=1)
+        curve_name = f"crv_height_{top_loc}"
+        cmds.curve(d=1, p=[top_point_loc, bttm_point_loc], n=curve_name)
+        cluster_1 = cmds.cluster(
+            f"{curve_name}.cv[0]", n=f"cluster_crv_{top_loc}_cv0"
+            )
+        cluster_2 = cmds.cluster(
+            f" {curve_name}.cv[1]", n=f"cluster_crv_{bttm_loc}_cv0"
+            )
+        
+        cmds.parent(cluster_1, top_loc)
+        cmds.parent(cluster_2, bttm_loc)
+                
+        for x in cmds.ls(typ="cluster"):
+            cmds.hide(f"{x}Handle")
+            cmds.setAttr(f"{x}Handle.hiddenInOutliner", True)
+                
+        cmds.setAttr(f"{curve_name}.template", 1)
+        cmds.select(cl=1)
+        
+
+    def place_locator_measurments(self, dictionary, dict_name, parent_hierachy=True):
+        pref = "mes"
+        
+        rt_parent = f"loc_{pref}_{dict_name}_rt"
+        current_path = os.path.dirname(os.path.abspath(__file__))
+        SQUID_FILE = os.path.join(current_path, 
+                                  "imports",
+                                  "sqd_shape_001.abc"
+                                  )
+        print(f"rt_parent path = {current_path}")
+        imported = cmds.file(SQUID_FILE, i=1, namespace="sqd_shape_001", rnn=1)
+        print(imported)
+        cmds.rename(imported[0], rt_parent)
+        cmds.setAttr(f"{rt_parent}.scaleX", 5)
+        cmds.setAttr(f"{rt_parent}.scaleY", 5)
+        cmds.setAttr(f"{rt_parent}.scaleZ", 5)
+        cmds.makeIdentity(rt_parent, apply=True, t=0, r=0, s=1, n=0) 
+        
+        sqd_shape_list = cmds.listRelatives(rt_parent, shapes=1) 
+        sqd_shape = [shape for shape in sqd_shape_list if "sqd" in shape]
+        for shape in sqd_shape:
+            cmds.setAttr(f"{shape}.overrideEnabled", 1)
+            cmds.setAttr(f"{shape}.overrideColor", 17)
+
+        grp_name = f"grp_{pref}_{dict_name}"
+        if not cmds.objExists(grp_name):
+            cmds.group(empty=True, name=grp_name)
+        cmds.setAttr(f"{grp_name}.displayLocalAxis", 1)
+
+        cmds.parent(rt_parent, grp_name)
+            
+        # Iterate through the dictionary to create locs
+        STAR_FILE = os.path.join(current_path, 
+                                  "imports",
+                                  "star_shape_001.abc"
+                                  )
+
+        previous_locator = None
+        for key, value in dictionary.items():
+            loc_name = f"loc_{pref}_{key}"
+            if not cmds.objExists(loc_name):
+                star_imported = cmds.file(
+                    STAR_FILE, i=1, namespace="star_shape_001", rnn=1
+                    )
+                locator = cmds.rename(star_imported[0], loc_name)
+                cmds.setAttr(f"{locator}.translateY", value)
+                cmds.setAttr(f"{locator}.scaleX", 5)
+                cmds.setAttr(f"{locator}.scaleY", 5)
+                cmds.setAttr(f"{locator}.scaleZ", 5)
+                cmds.makeIdentity(locator, apply=True, t=0, r=0, s=1, n=0) 
+                
+                star_shape_list = cmds.listRelatives(locator, shapes=1) 
+                star_shape = [shape for shape in star_shape_list if "star" in shape]
+                for shape in star_shape:
+                    cmds.setAttr(f"{shape}.overrideEnabled", 1)
+                    cmds.setAttr(f"{shape}.overrideColor", 20)
+
+            if parent_hierachy and previous_locator:
+                cmds.parent(locator, previous_locator)
+            else:
+                cmds.parent(locator, rt_parent)
+            previous_locator = locator
+
+        # Call connector_curve function for each pair of locs
+        locs = cmds.listRelatives(rt_parent, children=True) or []
+        for x in range(len(locs)-1):
+            try:
+                if parent_hierachy == True:
+                    self.connector_curve(locs[x], locs[x+1])
+                else:
+                    for loc in locs:
+                        self.connector_curve(rt_parent, loc)
+            except:
+                pass
+
+
+" - And I have another python file (measurement_dict.py) that currently stores this: "
+def arm_measurement_dict(name = "Max"):
+    unit = "cm"
+
+    limb = {
+       f"clv_shld_{name}": 15, 
+       f"shld_elbow_{name}": 26, 
+       f"elbow_wrist_{name}": 25.4, 
+        }
+
+    hand = {  
+        f"wrist_indexKnu_{name}": 10.5, 
+        f"wrist_middleKnu_{name}": 10, 
+        f"wrist_ringKnu_{name}": 9.5,
+        f"wrist_pinkyKnu_{name}": 9.8,
+        f"wrist_thumbKnu_{name}": 9.5
+        }
+
+    handknuWidth = {  
+        f"handknuWidth_{name}": 8.5
+        }
+
+    fingName = ["Knu", "Proximal", "Distal", "DistalEnd"]
+    index = {  
+        f"Index{fingName[0]}_Index{fingName[1]}_{name}": 3.5,
+        f"Index{fingName[1]}_Index{fingName[2]}_{name}": 2.2,
+        f"Index{fingName[2]}_Index{fingName[3]}_{name}": 2.7
+        }
+
+    middle = {  
+        f"middle{fingName[0]}_middle{fingName[1]}_{name}": 3.8,
+        f"middle{fingName[1]}_middle{fingName[2]}_{name}": 2.5,
+        f"middle{fingName[2]}_middle{fingName[3]}_{name}": 2.9
+        }
+
+    ring = {  
+        f"ring{fingName[0]}_ring{fingName[1]}_{name}": 3.7,
+        f"ring{fingName[1]}_ring{fingName[2]}_{name}": 2.1,
+        f"ring{fingName[2]}_ring{fingName[3]}_{name}": 2.9
+        }
+
+    pinky = {  
+        f"pinky{fingName[0]}_pinky{fingName[1]}_{name}": 3.5,
+        f"pinky{fingName[1]}_pinky{fingName[2]}_{name}": 1.9,
+        f"pinky{fingName[2]}_pinky{fingName[3]}_{name}": 2.5
+        }
+
+#---------------------------------------------------------
+
+def head_measurement_dict(name = "Max"):
+    unit = "cm"
+
+    neckLength = {
+        f"neck1_2{name}": 5.5, 
+        f"neck2_3{name}": 3   
+    }
+
+    neckWidth = {
+        f"neckWidth_{name}": 10.9
+    }
+
+    headHeight = {f"chin_bridge_{name}":10.3}
+
+    headWidth = {f"ear_ear_{name}":5.4}
+    
+
+def head_measurement_dict(name = "Jae"):
+    unit = "cm"
+    
+    neckLength = {
+        f"neck1_2{name}": 5.5, 
+        f"neck2_3{name}": 3   
+    }
+
+    neckWidth = {
+        f"neckWidth_{name}": 11.4
+    }
+
+    headHeight = {f"chin_bridge_{name}":13.3}
+
+    headWidth = {f"ear_ear_{name}":5.4}",  a range of dictyionary's and are meant to be read like the testing example of "hand = {"calv_to_shld": 38.1, 
+            "shld_to_elbow": 66, 
+            "elbow_to_wrist": 64.516
+            }
+        self.place_locator_measurments(hand, "hand")" in the 'jmvs_measurment_tool' class. Help me make my class handle the measurement_dict.py file. Then I want you to show me the usefulness of turning measurment_dict.py into an .ini file as i've been researching how they store configuration settings for software as basically a storage file for data inforamtion and making my class measurment_tool_002.py handle this .ini file as i have ideas of developing this into something quite cool if it works. 
+
+
+# -----------------------------------------------------------------------------
+for the .ini file configuration setup I want to ask how I should styructure my 
+folders. Right now my `measurment_tool_002.py` file is within the github 
+repositiry folder 'JmvsShelf_Rigging' and the file can be found in this path: 
+`JmvsShelf_Rigging\scripts\data`. Since i will be having multiple ini files that 
+are variants where and how should I structure this? as my future goal is to have
+an ini file that says default, which loads an interface with a whole drop down 
+list of different ini files variations like 'arm_measurements' and more. So 
+DO NOT go into the details of creating the ui and shit just help me learn the 
+proper folder structures needed!  
