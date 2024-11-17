@@ -10,17 +10,17 @@ importlib.reload(util)
 
 '''
 import importlib
-from JmvsShelf_Rigging.scripts.data import measurment_tool_001.py
+from JmvsShelf_Rigging.scripts.data import measurment_tool_003.py
 
-importlib.reload(measurment_tool_001.py)
-measurment_tool_001.py.jmvs_measurment_tool()
+importlib.reload(measurment_tool_003.py)
+measurment_tool_003.py.jmvs_measurment_tool()
 '''
 
 class jmvs_measurment_tool():
     def __init__(self):
         config = configparser.ConfigParser()
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        ini_list = ['leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini']
+        ini_list = ['finger_measurements_Max.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini']# ['leg_measurements_Max.ini'] #, 'leg_measurements_Max.ini', 'arm_measurements_Max.ini', 'head_measurements_Max.ini', 'head_measurements_Jae.ini']# ['leg_measurements_Max.ini']
             # 
         
         # create the .ini fole path then read
@@ -78,10 +78,15 @@ class jmvs_measurment_tool():
         print(f"suffix: {suffix}")
         rt_parent = f"sqd_rt_{dict_name}{suffix}"
         current_path = os.path.dirname(os.path.abspath(__file__))
+        # C:\Docs\maya\scripts\JmvsShelf_Rigging\scripts\data
+        print(f"current path: {current_path}")
         SQUID_FILE = os.path.join(current_path, 
+                                  "..", 
+                                  "..",
                                   "imports",
                                   "sqd_shape_001.abc"
                                   )
+        print(f"current squid path: {SQUID_FILE}")
         print(f"rt_parent path = {current_path}")
         imported = cmds.file(SQUID_FILE, i=1, namespace="sqd_shape_001", rnn=1)
         print(imported)
@@ -126,7 +131,9 @@ class jmvs_measurment_tool():
         
         #----------------------------------------------------------------------
         # Iterate through the dictionary to create locs
-        STAR_FILE = os.path.join(current_path, 
+        STAR_FILE = os.path.join(current_path,
+                                  "..", 
+                                  "..", 
                                   "imports",
                                   "star_shape_001.abc"
                                   )

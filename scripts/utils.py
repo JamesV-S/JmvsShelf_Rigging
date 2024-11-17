@@ -20,8 +20,9 @@ def connector_curve(obj_item, single_obj):
         for x in cmds.ls(typ="cluster"):
             cmds.hide(f"{x}Handle")
             cmds.setAttr(f"{x}Handle.hiddenInOutliner", True)
-        
-        cmds.setAttr(f"{curve_name}.template", 1)
+        if cmds.objExists(curve_name):
+            if cmds.attributeQuery('template', node=curve_name, exists=True):
+                cmds.setAttr(f"{curve_name}.template", 1)
         cmds.select(cl=1)
 
         return curve_name

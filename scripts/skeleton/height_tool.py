@@ -135,7 +135,7 @@ class height_tool_interface(QWidget):
 
     def height_num(self):
         height_num_input = self.lineEdit.text()
-        self.height_num_int = int(height_num_input)
+        self.height_num_int = float(height_num_input)
         print(f"height_num_input: {self.height_num_int}")
         # return height_num_str
     
