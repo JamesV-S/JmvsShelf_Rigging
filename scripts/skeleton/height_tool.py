@@ -55,6 +55,7 @@ class height_tool_interface(QWidget):
         self.resize(290, 100)
 
         current_dir = os.path.dirname(os.path.abspath(__file__))
+        print(f"rt_parent path = {current_dir}") 
         stylesheet_path = os.path.join(current_dir,
             "..",  
             "..",  
