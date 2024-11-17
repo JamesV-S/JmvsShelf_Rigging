@@ -71,8 +71,8 @@ def head_measurement_dict(name = "Jae"):
     unit = "cm"
     
     neckLength = {
-        f"neck1_2{name}": 5.5, 
-        f"neck2_3{name}": 3   
+        f"neck1_2{name}": 6.5, 
+        f"neck2_3{name}": 5   
     }
 
     neckWidth = {
