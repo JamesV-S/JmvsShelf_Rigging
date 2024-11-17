@@ -11,16 +11,15 @@ from JmvsShelf_Rigging.scripts.data import measurment_tool_001.py
 importlib.reload(measurment_tool_001.py)
 measurment_tool_001.py.jmvs_measurment_tool()
 '''
-
 from JmvsShelf_Rigging.scripts.data import measurement_dict
 importlib.reload(measurement_dict)
 
-# from measurement_dict import arm_measurement_dict, head_measurement_dict
+from measurement_dict import arm_measurement_dict, head_measurement_dict
 
 class jmvs_measurment_tool():
     def __init__(self):
         
-        limb, hand = measurement_dict.arm_measurement_dict("Max")
+        limb, hand = arm_measurement_dict("Max")
         self.place_locator_measurments(limb, "hand")
         self.place_locator_measurments(hand, "hand")
 
