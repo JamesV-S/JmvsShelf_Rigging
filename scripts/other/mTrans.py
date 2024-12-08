@@ -11,7 +11,7 @@ def matchsTransform():
         print("Other objs: ", objList)
     
         for i in range(len(objList)):
-            cmds.matchTransform(objList[i], firstSelected)
+            cmds.matchTransform(objList[i], firstSelected, pos=1, rot=1, scl=0)
 
     if not firstSelected:
         cmds.error("ERROR: No obj selected")
