@@ -1,5 +1,4 @@
-#This script bakes Transform of node(eg: Nurbscurve_Ctrl) to its Offset Parent Matrix which then acts as its rest matrix. Credit to Muream @gitHubGist 
-
+# BEGIN – code from https://gist.github.com/Muream/b4255ec4f690222d92fe794be249b7f1
 import maya.api.OpenMaya as om
 import maya.cmds as cmds
 
@@ -51,6 +50,7 @@ def OpmCleanTool():
             bake_transform_to_offset_parent_matrix(node)
 
     bake_transform_to_offset_parent_matrix_selection()
+# END - https://gist.github.com/Muream/b4255ec4f690222d92fe794be249b7f1
 
 
 
