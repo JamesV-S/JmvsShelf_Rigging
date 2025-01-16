@@ -15,7 +15,8 @@ def csu_rename_controls(self, obj_split, fst_name, num_ctrl, sys_pref):
                 print(fst_name[i])
                 print(joined_list[i])
                 cmds.rename( fst_name[i], (f"ctrl_{sys_pref}_{joined_list[i]}") )
-            ctrl_list = [("ctrl_" + sys_pref + '_' + joined_list[i]) for i in range(num_ctrl)]
+            #ctrl_list = [("ctrl_" + sys_pref + '_' + joined_list[i]) for i in range(num_ctrl)]
+            ctrl_list = [f"ctrl_{sys_pref}_{joined_list[i]}" for i in range(num_ctrl)]
         else:
              rnm_hi_list = obj_split.split('_')[-2:]
              joined_list = '_'.join(rnm_hi_list)
