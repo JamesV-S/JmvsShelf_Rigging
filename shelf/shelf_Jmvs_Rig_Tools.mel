@@ -137,7 +137,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -align "center" 
-        -label "Get_PY_file_path" 
+        -label "get_PY_file_path" 
         -labelOffset 0
         -rotation 0
         -flipX 0
@@ -152,7 +152,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.data import Get_PY_file_path" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.data import get_PY_file_path\n\nimportlib.reload(get_PY_file_path)\nget_PY_file_path.py_file_path_main()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -220,14 +220,14 @@ global proc shelf_Jmvs_Rig_Tools () {
         -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -align "center" 
-        -label "freeze_all_values" 
+        -label "freeze_all_transform" 
         -labelOffset 0
         -rotation 0
         -flipX 0
         -flipY 0
         -useAlpha 1
         -font "plainLabelFont" 
-        -imageOverlayLabel "frz_All" 
+        -imageOverlayLabel "Frz_All" 
         -overlayLabelColor 1 1 1 
         -overlayLabelBackColor 1 1 1 0.5 
         -image "FreezeTransform.png" 
@@ -235,7 +235,42 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_trans\n\nimportlib.reload(Frz_trans)\nFrz_trans.freeze_tans()\n\n\n" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_all\n\nimportlib.reload(Frz_trans)\nFrz_all.freeze_all()\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "freeze_translations" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Frz_Trans" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0.5 0.5 0.5 0.5 
+        -image "freezeSelected.png" 
+        -image1 "freezeSelected.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_trans\n\nimportlib.reload(Frz_trans)\nFrz_trans.freeze_trans()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -264,13 +299,48 @@ global proc shelf_Jmvs_Rig_Tools () {
         -font "plainLabelFont" 
         -imageOverlayLabel "Frz_Rot" 
         -overlayLabelColor 1 1 1 
-        -overlayLabelBackColor 1 1 1 0.5 
-        -image "freezeSelected.png" 
-        -image1 "freezeSelected.png" 
+        -overlayLabelBackColor 0.5 0.5 0.5 0.5 
+        -image "rotateUVccw.png" 
+        -image1 "rotateUVccw.png" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
         -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_rot\n\nimportlib.reload(Frz_rot)\nFrz_rot.freeze_rot()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "freeze_scale" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Frz_Scl" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0.483173 0.483173 0.483173 0.5 
+        -image "Freeze.png" 
+        -image1 "Freeze.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_scl\n\nimportlib.reload(Frz_trans)\nFrz_scl.freeze_scale()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -515,7 +585,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import Jmvs_PYQT_ctrl_setup\n\nimportlib.reload(Jmvs_PYQT_ctrl_setup)\nJmvs_PYQT_ctrl_setup.main()\n" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import ctrl_setup_tool\n\nimportlib.reload(ctrl_setup_tool)\nctrl_setup_tool.ctrlSetupTool_main()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -563,7 +633,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.attribute import jmvs_UIsetup_create_custom_attribute_tool\n\nimportlib.reload(jmvs_UIsetup_create_custom_attribute_tool)\njmvs_UIsetup_create_custom_attribute_tool.main()\n" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.attribute import cr_custom_attr_tool\n\nimportlib.reload(cr_custom_attr_tool)\ncr_custom_attr_tool.crCustomAttrTool_main()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -598,7 +668,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.attribute import jmvs_UIsetup_delete_attribute_tool\n\nimportlib.reload(jmvs_UIsetup_delete_attribute_tool)\njmvs_UIsetup_delete_attribute_tool.main()\n" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.attribute import delete_attr_tool\n\nimportlib.reload(delete_attr_tool)\ndelete_attr_tool.deleteAttrTool_main()\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1192,47 +1262,12 @@ global proc shelf_Jmvs_Rig_Tools () {
         -imageOverlayLabel "CrSknJnts" 
         -overlayLabelColor 0.3333 0.3865 1 
         -overlayLabelBackColor 0 0 0 1 
-        -image "pythonFamily.png" 
-        -image1 "pythonFamily.png" 
+        -image "skin.png" 
+        -image1 "skin.png" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
         -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import cr_sknJnts_from_rigJntsSel\n\nimportlib.reload(cr_sknJnts_from_rigJntsSel)\ncr_sknJnts_from_rigJntsSel.produce_sknJnts_from_rig_jnts_sel()" 
-        -sourceType "python" 
-        -commandRepeatable 1
-        -flat 1
-    ;
-    shelfButton
-        -enableCommandRepeat 1
-        -flexibleWidthType 3
-        -flexibleWidthValue 32
-        -enable 1
-        -width 35
-        -height 34
-        -manage 1
-        -visible 1
-        -preventOverride 0
-        -annotation "Constrain a selection of controls & joints together" 
-        -enableBackground 0
-        -backgroundColor 0 0 0 
-        -highlightColor 0.321569 0.521569 0.65098 
-        -align "center" 
-        -label "Constran_selected_joints" 
-        -labelOffset 0
-        -rotation 0
-        -flipX 0
-        -flipY 0
-        -useAlpha 1
-        -font "plainLabelFont" 
-        -imageOverlayLabel "Con_jnts_sl" 
-        -overlayLabelColor 1 0 0 
-        -overlayLabelBackColor 0 0 0 1 
-        -image "activeDeselectedAnimLayer.png" 
-        -image1 "activeDeselectedAnimLayer.png" 
-        -style "iconOnly" 
-        -marginWidth 0
-        -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import ConstrainJnts_01\n\nimportlib.reload(ConstrainJnts_01)\nConstrainJnts_01.p_constrain()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1303,6 +1338,41 @@ global proc shelf_Jmvs_Rig_Tools () {
         -marginWidth 0
         -marginHeight 1
         -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import Unbind_skinCluster_01\n\nimportlib.reload(Unbind_skinCluster_01)\nUnbind_skinCluster_01.Unbind_skin()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Create a skincluster between any number of selected joints & geos" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Bind_skinCluster_selection" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "Bind" 
+        -overlayLabelColor 1 0 0 
+        -overlayLabelBackColor 1 1 1 1 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import bind_skinCluster_01\n\nimportlib.reload(bind_skinCluster_01)\nbind_skinCluster_01.bind_joints_to_geos()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -1478,6 +1548,76 @@ global proc shelf_Jmvs_Rig_Tools () {
         -marginWidth 0
         -marginHeight 1
         -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import hide_jnts\n\nimportlib.reload(hide_jnts)\nhide_jnts.H_jnts()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Colour_skn_joints" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "ClSknJnt" 
+        -overlayLabelColor 0.378 0 0.0581551 
+        -overlayLabelBackColor 1 1 1 1 
+        -image "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -image1 "C:/Docs/maya/scripts/JmvsShelf_Rigging/style_interface/images/logo_cog_navy.jpeg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import colour_skinJoints\n\nimportlib.reload(colour_skinJoints)\ncolour_skinJoints.skn_jnt_cl()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Colour_rig_joints" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "ClRigJnts" 
+        -overlayLabelColor 1 1 0 
+        -overlayLabelBackColor 0 0 0 0.9 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.skeleton import colour_rigJoints\n\nimportlib.reload(colour_rigJoints)\ncolour_rigJoints.rig_jnt_cl()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
