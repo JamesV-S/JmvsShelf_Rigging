@@ -1,7 +1,20 @@
 With the new shelf repo's Rigging, Modelling.
 
-How do I need to use batch scripts?
+THIS LOGIC IS SHARED WITH THE MAJORITY, if not all, TOOLS ON MY GITHUB REPO!
 
-Need a batch script to copy the repo. 
-In that same batch: What else Do I need to setup?
-Shelf file, workspace, mayaEnv. (DON'T need the driver letter anymore!)
+** What are the main features of the batch?
+(Besides setting up my custom shelf, workspace, enviroment and running maya)
+- with a provided directory "", it searches for my gitrepo `JmvsShelf_Rigging`
+> Check if directory exists
+> Check for changes, (including untracked files)
+> with any changes present, commit those changes and publish's to GitHub
+- Once the existing repo is thoroughly checked and saved:  
+> Batch removes the existing (repo if it exists), to clone it from new. >> 
+* Ensuring the most up to date verion of the gitrepo is the one I'm working on 
+consitently without overwriting my own work
+Following that:
+> COPY SHELF
+> COPY Mayaenv & Workspace
+> Start Maya 
+
+
