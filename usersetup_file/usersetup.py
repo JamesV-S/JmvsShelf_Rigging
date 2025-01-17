@@ -47,7 +47,6 @@ run_jmvsShelf_Rigging_batch()
 def deferred_setup_tasks():
     pass # Any tasks for AFTER the ui of maya has loaded.
     print("Deferred setup done.")
-
 deferred_setup_tasks()
 
 
