@@ -25,7 +25,7 @@ print(f"module imported from {custom_path}")
 sys.path.append(custom_path)
 sys.path.append(another_path)
 
-import curveCube_class as cCc
+import curveCube_class
 import OPM
 import csu_cv_col_func
 import smpl_mtrans_fnc
@@ -35,7 +35,7 @@ import csu_create_ctrls_mdl as cr_ctls
 import csu_sel_ctrls_mdl
 import csu_rnm_ctrls_mdl as rnm_mdl
 
-importlib.reload(cCc)
+importlib.reload(curveCube_class)
 importlib.reload(OPM)
 importlib.reload(csu_cv_col_func)
 importlib.reload(smpl_mtrans_fnc)
