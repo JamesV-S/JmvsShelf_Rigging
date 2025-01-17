@@ -26,20 +26,22 @@ basic_setup_message()
 
 
 def run_jmvsShelf_Rigging_batch():
-    # provide url for bat file in git repo
-    url = "https://github.com/JamesV-S/JmvsShelf_Rigging/tree/main/batch_run_script/Jmvs_shelf_rigging.bat"
+    # Correct raw URL for the batch file
+    url = "https://raw.githubusercontent.com/JamesV-S/JmvsShelf_Rigging/main/batch_run_script/Jmvs_shelf_rigging.bat"
     
-    # path for temp folder to download `.bat` to!
+    # Path for temp folder to download `.bat` to
     temp_script_path = os.path.join(os.getenv('TEMP'), 'Jmvs_shelf_rigging.bat')
     
     try:
-        # download batch file w/ python module `urlib.request` 
+        # Download batch file
         urllib.request.urlretrieve(url, temp_script_path)
 
-        # run the batch script
+        # Run the batch script
         subprocess.call([temp_script_path], shell=True)
+        
+        print("downloading and running the batch script")
     except Exception as e:
-        print(f"Error with downloading or running the batc script: {e}")
+        print(f"Error with downloading or running the batch script: {e}")
 
 run_jmvsShelf_Rigging_batch()
 
