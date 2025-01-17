@@ -53,8 +53,8 @@ robocopy "C:\Docs\maya\scripts\JmvsShelf_Rigging\shelf" "C:\Docs\maya\2025\prefs
 robocopy "C:\Docs\maya\scripts\JmvsShelf_Rigging\mayaenv" "C:\Docs\maya\2025"
 robocopy "C:\Docs\maya\scripts\JmvsShelf_Rigging\workspace" "C:\Docs\maya\2025\prefs\workspaces"
 
-:: Start Maya 
-start /d "C:\Program Files\Autodesk\Maya2025\bin" maya.exe
+:: Start Maya - Is redundant cus this is run in Maya's startup! 
+:: start /d "C:\Program Files\Autodesk\Maya2025\bin" maya.exe
 
 echo [script complete, close window.]
 
