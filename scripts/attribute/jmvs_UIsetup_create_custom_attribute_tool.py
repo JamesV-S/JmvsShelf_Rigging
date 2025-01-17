@@ -1,39 +1,37 @@
 
 import maya.cmds as cmds
-from maya import OpenMayaUI as omui
+from maya import OpenMayaUI
 
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import QWidget
-from PySide6.QtWidgets import *
-from PySide6.QtUiTools import *
 
-from shiboken6 import wrapInstance
-from PySide6 import QtUiTools, QtWidgets, QtCore
-from functools import partial # if you want to include args with UI method calls
+try:
+    from PySide6 import QtCore, QtWidgets, QtGui, QtUiTools
+    from PySide6.QtCore import Qt, Signal, QFile
+    from PySide6.QtGui import QIcon, QStandardItemModel, QStandardItem
+    from PySide6.QtWidgets import (QWidget)
+    from shiboken6 import wrapInstance
+except ModuleNotFoundError:
+    from PySide2 import QtCore, QtWidgets, QtGui
+    from PySide2.QtCore import Qt, Signal
+    from PySide2.QtGui import QIcon
+    from PySide2.QtWidgets import (QWidget)
+    from shiboken2 import wrapInstance
 
 import sys
 import importlib
-from Jmvs_letter_driver_script import find_driver_letter 
-importlib.reload(find_driver_letter)
-
-A_driver = find_driver_letter.get_folder_letter("Jmvs_current_file_path")
-custom_path = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools' 
-print(f"module imported from {custom_path}")
-sys.path.append(custom_path)
+from functools import partial
 
 
 # import the tool code!
-import locked_enum_attri_func as DividerAttr
-import float_custom_attr_func as floatAttr
-import switch_cstm_enum_attr as enumSwitchAttr
+from JmvsShelf_Rigging.scripts.attribute import locked_enum_attri_func as DividerAttr
+from JmvsShelf_Rigging.scripts.attribute import float_custom_attr_func as floatAttr
+from JmvsShelf_Rigging.scripts.attribute import switch_cstm_enum_attr as enumSwitchAttr
 
 importlib.reload(DividerAttr)
 importlib.reload(floatAttr)
 importlib.reload(enumSwitchAttr)
 
 
-mayaMainWindowPtr = omui.MQtUtil.mainWindow()
+mayaMainWindowPtr = OpenMayaUI.MQtUtil.mainWindow()
 mayaMainWindow = wrapInstance(int(mayaMainWindowPtr), QWidget)
 
 
@@ -57,9 +55,9 @@ class QtSamplerWindow(QWidget):
 
         # --------
         # Initialize Divider tab UI elements and functionality
-        self.vl_sublayout = self.ui.findChild(QtWidgets.QVBoxLayout, "vl_sublayout")
-        self.ui.Div_add_name_btn.clicked.connect(self.div_add_name_subwidget_fun)
-        self.ui.Div_apply_btn.clicked.connect(self.Div_Apply_func)
+        self.vl_sublayout = self.findChild(QtWidgets.QVBoxLayout, "vl_sublayout")
+        self.Div_add_name_btn.clicked.connect(self.sigFunc_div_add_name_subwidget_fun)
+        self.Div_apply_btn.clicked.connect(self.sigFunc_Div_Apply_func)
 
 
         # --------    
@@ -67,39 +65,39 @@ class QtSamplerWindow(QWidget):
         self.limited_val = False
         self.min_val = 0  
         self.max_val = 0
-        self.flt_vl_sublayout = self.ui.findChild(QtWidgets.QVBoxLayout, "flt_vl_sublayout")      
-        self.ui.flt_add_name_btn.clicked.connect(self.flt_add_name_subwidget_fun)
-        self.ui.flt_Unlimited_radioBtn.clicked.connect(self.flt_unlimited_func)
-        self.ui.flt_Min_spnBox.valueChanged.connect(self.flt_min_func)
-        self.ui.flt_Max_spnBox.valueChanged.connect(self.flt_max_func)
-        self.ui.flt_apply_btn.clicked.connect(self.flt_Apply_func)
-        self.ui.flt_Min_spnBox.setEnabled(False)
-        self.ui.flt_Max_spnBox.setEnabled(False)
+        self.flt_vl_sublayout = self.findChild(QtWidgets.QVBoxLayout, "flt_vl_sublayout")      
+        self.flt_add_name_btn.clicked.connect(self.sigFunc_flt_add_name_subwidget_fun)
+        self.flt_Unlimited_radioBtn.clicked.connect(self.sigFunc_flt_unlimited_func)
+        self.flt_Min_spnBox.valueChanged.connect(self.sigFunc_flt_min_func)
+        self.flt_Max_spnBox.valueChanged.connect(self.sigFunc_flt_max_func)
+        self.flt_apply_btn.clicked.connect(self.sigFunc_flt_Apply_func)
+        self.flt_Min_spnBox.setEnabled(False)
+        self.flt_Max_spnBox.setEnabled(False)
         # Set range for the spin boxes to allow negative values
-        self.ui.flt_Min_spnBox.setRange(-999999, 999999)
-        self.ui.flt_Max_spnBox.setRange(-999999, 999999)
-        
+        self.flt_Min_spnBox.setRange(-999999, 999999)
+        self.flt_Max_spnBox.setRange(-999999, 999999)
 
         # --------
         # Initialize Float tab UI elements and functionality
         # this requiers master name & list of name! - nothing is getting disabled
-        self.enm_vl_sublayout = self.ui.findChild(QtWidgets.QVBoxLayout, "enm_vl_sublayout") 
-        self.ui.enm_add_name_btn.clicked.connect(self.enm_add_name_subwidget_fun)
-        self.ui.enm_masterName_line.textChanged.connect(self.enm_master_name_func)
-        self.ui.enm_apply_btn.clicked.connect(self.enm_Apply_func)
+        self.enm_vl_sublayout = self.findChild(QtWidgets.QVBoxLayout, "enm_vl_sublayout") 
+        self.enm_add_name_btn.clicked.connect(self.sigFunc_enm_add_name_subwidget_fun)
+        self.enm_masterName_line.textChanged.connect(self.sigFunc_enm_master_name_func)
+        self.enm_apply_btn.clicked.connect(self.sigFunc_enm_Apply_func)
 
     def initUI(self):
-        loader = QUiLoader()
-        UI_FILE = f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_ui/create_custom_attributes_qt.ui'
+        loader = QtUiTools.QUiLoader()
+        UI_FILE = 'C:\\Docs\\maya\\scripts\\JmvsShelf_Rigging\\scripts\\attribute\cstm_attr_ui\\create_custom_attributes_qt.ui\\create_custom_attributes_qt.ui'
         file = QFile(UI_FILE)
         file.open(QFile.ReadOnly)
         self.ui = loader.load(file, parentWidget=self)
         file.close()
     
     # functions, connected to above commands   
-    def div_add_name_subwidget_fun(self):
+    def sigFunc_div_add_name_subwidget_fun(self):
         print("button clicked")
-        self.subwidget = QtUiTools.QUiLoader().load(f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_ui/enmDIV_sub_widget.ui')
+        self.subwidget = QtUiTools.QUiLoader().load('C:\\Docs\\maya\\scripts\\JmvsShelf_Rigging\\scripts\\attribute\cstm_attr_ui\\create_custom_attributes_qt.ui\\enmDIV_sub_widget.ui')
+                                                                                                           
         self.vl_sublayout.addWidget(self.subwidget)
 
         lineEdit = self.subwidget.findChild(QtWidgets.QLineEdit, "div_enm_line")
@@ -142,7 +140,7 @@ class QtSamplerWindow(QWidget):
         print("Updated list after removal: ", self.divider_text_list)
         
 
-    def Div_Apply_func(self):
+    def sigFunc_Div_Apply_func(self):
         if not self.divider_text_list:
             print("No name provided for the divider attribute")
             return
@@ -156,7 +154,7 @@ class QtSamplerWindow(QWidget):
     # -------------------------------------------------------------------------
     # Float functions
     
-    def flt_add_name_subwidget_fun(self):
+    def sigFunc_flt_add_name_subwidget_fun(self):
         print("button clicked")
         self.flt_subwidget = QtUiTools.QUiLoader().load(f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_ui/flt_sub_widget.ui')
         self.flt_vl_sublayout.addWidget(self.flt_subwidget)
@@ -195,40 +193,40 @@ class QtSamplerWindow(QWidget):
         
         print("Updated list after removal: ", self.float_text_list)
 
-    def flt_unlimited_func(self):
+    def sigFunc_flt_unlimited_func(self):
                       
-        self.limited_val = self.ui.flt_Unlimited_radioBtn.isChecked()
+        self.limited_val = self.flt_Unlimited_radioBtn.isChecked()
         if self.limited_val == True:
             print("unlimited is True")
-            self.ui.flt_Min_spnBox.setEnabled(True)
-            self.ui.flt_Max_spnBox.setEnabled(True)#  flt_Max_spnBox
+            self.flt_Min_spnBox.setEnabled(True)
+            self.flt_Max_spnBox.setEnabled(True)#  flt_Max_spnBox
         else:
             print("unlimited is False")
             self.limited_val = False
-            self.ui.flt_Min_spnBox.setEnabled(False)
-            self.ui.flt_Max_spnBox.setEnabled(False)
+            self.flt_Min_spnBox.setEnabled(False)
+            self.flt_Max_spnBox.setEnabled(False)
             #print("unlimited is False")
 
         return self.limited_val
    
-    def flt_min_func(self):
+    def sigFunc_flt_min_func(self):
         try:       
             
-            self.min_val = self.ui.flt_Min_spnBox.value()
+            self.min_val = self.flt_Min_spnBox.value()
             self.min_val = float(self.min_val)
             print(f"float min value: {self.min_val}")       
         except ValueError:
             print( 'no string values allowed' )
     
-    def flt_max_func(self):
+    def sigFunc_flt_max_func(self):
         try:
-            self.max_val = self.ui.flt_Max_spnBox.value()
+            self.max_val = self.flt_Max_spnBox.value()
             self.max_val = float(self.max_val)
             print(f"float max value: {self.max_val}")
         except ValueError:
             print( 'no string values allowed' )
 
-    def flt_Apply_func(self):
+    def sigFunc_flt_Apply_func(self):
         if not self.float_text_list:
             print("No name provided for the float attribute")
             return
@@ -243,13 +241,13 @@ class QtSamplerWindow(QWidget):
     
     # -------------------------------------------------------------------------
     # Enum functions
-    def enm_master_name_func(self):
-        self.master_name = self.ui.enm_masterName_line.text()
+    def sigFunc_enm_master_name_func(self):
+        self.master_name = self.enm_masterName_line.text()
         self.master_name = str(self.master_name)
         print(f"master name list: {self.master_name}")
     
     
-    def enm_add_name_subwidget_fun(self):
+    def sigFunc_enm_add_name_subwidget_fun(self):
         print("button clicked")
         self.enm_subwidget = QtUiTools.QUiLoader().load(f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_ui/enm_sub_widget.ui')
         self.enm_vl_sublayout.addWidget(self.enm_subwidget)
@@ -263,6 +261,7 @@ class QtSamplerWindow(QWidget):
     def enm_handle_text_changed(self, line, text):
         if ' ' in text:
             self.enm_update_list(line)
+
 
     def enm_update_list(self, line):
         enm_text = line.text().strip() # Remove any leading/trailing spaces
@@ -291,7 +290,7 @@ class QtSamplerWindow(QWidget):
         print("Updated list after removal: ", self.enm_text_list)
     
 
-    def enm_Apply_func(self):
+    def sigFunc_enm_Apply_func(self):
         result = ':'.join(self.enm_text_list)
 
         if not self.enm_text_list:
