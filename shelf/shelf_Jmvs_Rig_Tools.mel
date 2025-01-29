@@ -55,6 +55,53 @@ global proc shelf_Jmvs_Rig_Tools () {
     shelfButton
         -enableCommandRepeat 1
         -flexibleWidthType 3
+        -flexibleWidthValue 41
+        -enable 1
+        -width 44
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Jmvs_Tool_Box" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Docs/maya/scripts/Jmvs_tool_box/user_interface/CSS/images/DB_whiteBlack.png" 
+        -image1 "C:/Docs/maya/scripts/Jmvs_tool_box/user_interface/CSS/images/DB_whiteBlack.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import importlib\nfrom Jmvs_tool_box import main\n\nimportlib.reload(main)\nmain.run_tool_box()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 10
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
         -width 35
@@ -235,7 +282,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_all\n\nimportlib.reload(Frz_trans)\nFrz_all.freeze_all()\n\n\n" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_all\n\nimportlib.reload(Frz_all)\nFrz_all.freeze_all()\n\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -340,7 +387,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_scl\n\nimportlib.reload(Frz_trans)\nFrz_scl.freeze_scale()" 
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import Frz_scl\n\nimportlib.reload(Frz_scl)\nFrz_scl.freeze_scale()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
