@@ -56,18 +56,11 @@ class rmv_pref_interface(QWidget):
 
         self.resize(200, 150)
 
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        stylesheet_path = os.path.join(current_dir,
-            "..",  
-            "..",  
-            "style_interface",
-            "CSS",
-            "style_shelf_ui_001.css"
-        )
-
-        with open(stylesheet_path, "r") as file:
-            stylesheet = file.read()
-        self.setStyleSheet(stylesheet)
+        #stylesheet_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
+        #                               "..",  "..", "style_interface", "CSS", "geoDB_style_sheet_001.css")
+        #with open(stylesheet_path, "r") as file:
+        #    stylesheet = file.read()
+        #self.setStyleSheet(stylesheet)
 
         # Add this variable to track the state of the Undo button
         self.undo_clicked = False      

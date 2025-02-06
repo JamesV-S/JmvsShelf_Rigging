@@ -32,8 +32,6 @@ importlib.reload(height_tool)
 height_tool.main()
 '''
 
-
-
 def delete_existing_ui(ui_name):
     if cmds.window(ui_name, exists=True):
         cmds.deleteUI(ui_name, window=True)
@@ -54,16 +52,8 @@ class height_tool_interface(QWidget):
 
         self.resize(290, 100)
 
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        print(f"rt_parent path = {current_dir}") 
-        stylesheet_path = os.path.join(current_dir,
-            "..",  
-            "..",  
-            "style_interface",
-            "CSS",
-            "style_shelf_ui_001.css"
-        )
-
+        stylesheet_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
+                                       "..",  "..", "style_interface", "CSS", "geoDB_style_sheet_001.css")
         with open(stylesheet_path, "r") as file:
             stylesheet = file.read()
         self.setStyleSheet(stylesheet)

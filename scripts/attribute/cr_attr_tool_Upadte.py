@@ -1,28 +1,45 @@
 
 import maya.cmds as cmds
 from maya import OpenMayaUI
-
 try:
     from PySide6 import QtCore, QtWidgets, QtGui
-    from PySide6.QtCore import Qt, Signal
+    from PySide6.QtCore import Qt, Signal, QFile
     from PySide6.QtGui import QIcon, QStandardItemModel, QStandardItem
     from PySide6.QtWidgets import (QWidget)
     from shiboken6 import wrapInstance
+    from PySide6 import QtUiTools
+    
 except ModuleNotFoundError:
     from PySide2 import QtCore, QtWidgets, QtGui
     from PySide2.QtCore import Qt, Signal
     from PySide2.QtGui import QIcon
     from PySide2.QtWidgets import (QWidget)
     from shiboken2 import wrapInstance
+    from PySide2.QtUiTools import *
+    
 
 import sys
 import importlib
 import os.path
+from functools import partial # if you want to include args with UI method calls
 
-# from JmvsShelf_Rigging.scripts. import utils as util
+from JmvsShelf_Rigging import os_custom_directory_utils
+importlib.reload(os_custom_directory_utils)
 
-from JmvsShelf_Rigging.scripts.data import func_path_of_python_file as getpath
-importlib.reload(getpath)
+
+# import the tool code!
+attr_directory = os_custom_directory_utils.create_directory(
+                "JmvsShelf_Rigging", "scripts", "attribute"
+                )
+
+from JmvsShelf_Rigging.scripts.attribute import locked_enum_attri_func as DividerAttr
+from JmvsShelf_Rigging.scripts.attribute import float_custom_attr_func as floatAttr
+from JmvsShelf_Rigging.scripts.attribute import switch_cstm_enum_attr as enumSwitchAttr
+
+importlib.reload(DividerAttr)
+importlib.reload(floatAttr)
+importlib.reload(enumSwitchAttr)
+
 
 maya_main_wndwPtr = OpenMayaUI.MQtUtil.mainWindow()
 main_window = wrapInstance(int(maya_main_wndwPtr), QWidget)
@@ -31,75 +48,87 @@ def delete_existing_ui(ui_name):
     if cmds.window(ui_name, exists=True):
         cmds.deleteUI(ui_name, window=True)
 
-class crCustomAttrTool(QtWidgets.QWidget):
-    def __init__(self, parent=None):
-        super(crCustomAttrTool, self).__init__(parent)
-        version = "001"
-        ui_object_name = f"crCustomAttrTool{version}"
-        ui_window_name = f"Create custom attr tool V{version}"
-        delete_existing_ui(ui_object_name)
-        self.setObjectName(ui_object_name)
-
-        # Set flags & dimensions
+class QtSamplerWindow(QWidget):
+    '''
+    Create a default tool window.
+    '''
+    def __init__(self, *args, **kwargs):
+        # Initialise window and load UI file
+        super(QtSamplerWindow,self).__init__(*args, **kwargs)
         self.setParent(main_window)
         self.setWindowFlags(Qt.Window)
-        self.setWindowTitle(ui_window_name)
-        self.resize(300, 250)
+        self.setWindowTitle("Custom Attr Tool")
+        ui_object_name = f"crCustomAttrTool"
+        delete_existing_ui(ui_object_name)
+        self.setObjectName(ui_object_name)
         
         stylesheet_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
                                        "..",  "..", "style_interface", "CSS", "geoDB_style_sheet_001.css")
         with open(stylesheet_path, "r") as file:
             stylesheet = file.read()
-        self.setStyleSheet(stylesheet)
+        # self.setStyleSheet(stylesheet)
         
+        self.initUI()
+
         # Lists to hold attribute names
         self.divider_text_list = []
         self.float_text_list = []
         self.enm_text_list = []
-
-        ''''''
-        self.UI()
-        self.UI_connect_signals()
-        ''''''
-
-    def UI(self):
-        main_Vlayout = QtWidgets.QVBoxLayout(self)
         
-        self.setLayout(main_Vlayout)
-    def UI_connect_signals(self):
-        # -------- Divider tab UI elements and functionality --------
-        self.vl_sublayout = self.findChild(QtWidgets.QVBoxLayout, "vl_sublayout")
-        self.Div_add_name_btn.clicked.connect(self.sigFunc_div_add_name_subwidget_fun)
-        self.Div_apply_btn.clicked.connect(self.sigFunc_Div_Apply_func)
 
-        # -------- Float tab UI elements and functionality --------
+        # --------
+        # Initialize Divider tab UI elements and functionality
+        self.vl_sublayout = self.ui.findChild(QtWidgets.QVBoxLayout, "vl_sublayout")
+        self.ui.Div_add_name_btn.clicked.connect(self.div_add_name_subwidget_fun)
+        self.ui.Div_apply_btn.clicked.connect(self.Div_Apply_func)
+
+
+        # --------    
+        # Initialize Float tab UI elements and functionality
         self.limited_val = False
         self.min_val = 0  
         self.max_val = 0
-        self.flt_vl_sublayout = self.findChild(QtWidgets.QVBoxLayout, "flt_vl_sublayout")      
-        self.flt_add_name_btn.clicked.connect(self.sigFunc_flt_add_name_subwidget_fun)
-        self.flt_Unlimited_radioBtn.clicked.connect(self.sigFunc_flt_unlimited_func)
-        self.flt_Min_spnBox.valueChanged.connect(self.sigFunc_flt_min_func)
-        self.flt_Max_spnBox.valueChanged.connect(self.sigFunc_flt_max_func)
-        self.flt_apply_btn.clicked.connect(self.sigFunc_flt_Apply_func)
-        self.flt_Min_spnBox.setEnabled(False)
-        self.flt_Max_spnBox.setEnabled(False)
+        self.flt_vl_sublayout = self.ui.findChild(QtWidgets.QVBoxLayout, "flt_vl_sublayout")      
+        self.ui.flt_add_name_btn.clicked.connect(self.flt_add_name_subwidget_fun)
+        self.ui.flt_Unlimited_radioBtn.clicked.connect(self.flt_unlimited_func)
+        self.ui.flt_Min_spnBox.valueChanged.connect(self.flt_min_func)
+        self.ui.flt_Max_spnBox.valueChanged.connect(self.flt_max_func)
+        self.ui.flt_apply_btn.clicked.connect(self.flt_Apply_func)
+        self.ui.flt_Min_spnBox.setEnabled(False)
+        self.ui.flt_Max_spnBox.setEnabled(False)
         # Set range for the spin boxes to allow negative values
-        self.flt_Min_spnBox.setRange(-999999, 999999)
-        self.flt_Max_spnBox.setRange(-999999, 999999)
+        self.ui.flt_Min_spnBox.setRange(-999999, 999999)
+        self.ui.flt_Max_spnBox.setRange(-999999, 999999)
         
+
         # --------
         # Initialize Float tab UI elements and functionality
         # this requiers master name & list of name! - nothing is getting disabled
-        self.enm_vl_sublayout = self.findChild(QtWidgets.QVBoxLayout, "enm_vl_sublayout") 
-        self.enm_add_name_btn.clicked.connect(self.sigFunc_enm_add_name_subwidget_fun)
-        self.enm_masterName_line.textChanged.connect(self.sigFunc_enm_master_name_func)
-        self.enm_apply_btn.clicked.connect(self.sigFunc_enm_Apply_func)
+        self.enm_vl_sublayout = self.ui.findChild(QtWidgets.QVBoxLayout, "enm_vl_sublayout") 
+        self.ui.enm_add_name_btn.clicked.connect(self.enm_add_name_subwidget_fun)
+        self.ui.enm_masterName_line.textChanged.connect(self.enm_master_name_func)
+        self.ui.enm_apply_btn.clicked.connect(self.enm_Apply_func)
+
+    def initUI(self):
+        loader = QtUiTools.QUiLoader()
+        UI_FILE = os.path.join(os_custom_directory_utils.create_directory(
+                "JmvsShelf_Rigging", "scripts", "attribute", "cstm_attr_ui"
+                ), "create_custom_attributes_qt.ui")
+        file = QFile(UI_FILE)
+        file.open(QFile.ReadOnly)
+        self.ui = loader.load(file, parentWidget=self)
+        file.close()
     
     # functions, connected to above commands   
-    def sigFunc_div_add_name_subwidget_fun(self):
+    def div_add_name_subwidget_fun(self):
         print("button clicked")
-        self.subwidget = QtUiTools.QUiLoader().load(f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_ui/enmDIV_sub_widget.ui')
+        subwidget_path = os.path.join(os_custom_directory_utils.create_directory(
+                "JmvsShelf_Rigging", "scripts", "attribute", "cstm_attr_ui"
+                ), "enmDIV_sub_widget.ui")
+        
+        # Load the UI file
+        loader = QtUiTools.QUiLoader()
+        self.subwidget = loader.load(subwidget_path) 
         self.vl_sublayout.addWidget(self.subwidget)
 
         lineEdit = self.subwidget.findChild(QtWidgets.QLineEdit, "div_enm_line")
@@ -142,7 +171,7 @@ class crCustomAttrTool(QtWidgets.QWidget):
         print("Updated list after removal: ", self.divider_text_list)
         
 
-    def sigFunc_Div_Apply_func(self):
+    def Div_Apply_func(self):
         if not self.divider_text_list:
             print("No name provided for the divider attribute")
             return
@@ -156,9 +185,16 @@ class crCustomAttrTool(QtWidgets.QWidget):
     # -------------------------------------------------------------------------
     # Float functions
     
-    def sigFunc_flt_add_name_subwidget_fun(self):
+    def flt_add_name_subwidget_fun(self):
         print("button clicked")
-        self.flt_subwidget = QtUiTools.QUiLoader().load(f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_ui/flt_sub_widget.ui')
+        flt_subwidget_path = os.path.join(os_custom_directory_utils.create_directory(
+                "JmvsShelf_Rigging", "scripts", "attribute", "cstm_attr_ui"
+                ), "flt_sub_widget.ui")
+        
+        loader = QtUiTools.QUiLoader()
+        self.flt_subwidget = loader.load(flt_subwidget_path) 
+        # Create an instance of the widget class from the UI
+
         self.flt_vl_sublayout.addWidget(self.flt_subwidget)
 
         flt_lineEdit = self.flt_subwidget.findChild(QtWidgets.QLineEdit, "flt_line")
@@ -166,11 +202,9 @@ class crCustomAttrTool(QtWidgets.QWidget):
         flt_btn_remove = self.flt_subwidget.findChild(QtWidgets.QPushButton, "flt_remove_btn")
         flt_btn_remove.clicked.connect(partial (self.flt_removeSubwidget, self.flt_subwidget, flt_lineEdit))
 
-
     def flt_handle_text_changed(self, line, text):
         if ' ' in text:
             self.flt_update_list(line)
-
 
     def flt_update_list(self, line):
         flt_text = line.text().strip() # Remove any leading/trailing spaces
@@ -184,7 +218,6 @@ class crCustomAttrTool(QtWidgets.QWidget):
 
             print("Updated list: ", self.float_text_list )
     
-
     def flt_removeSubwidget(self, subwidget, line):
         flt_text = line.text().strip()
         print("text to remove: ", flt_text)
@@ -198,44 +231,40 @@ class crCustomAttrTool(QtWidgets.QWidget):
         
         print("Updated list after removal: ", self.float_text_list)
 
-
-    def sigFunc_flt_unlimited_func(self):
+    def flt_unlimited_func(self):
                       
-        self.limited_val = self.flt_Unlimited_radioBtn.isChecked()
+        self.limited_val = self.ui.flt_Unlimited_radioBtn.isChecked()
         if self.limited_val == True:
             print("unlimited is True")
-            self.flt_Min_spnBox.setEnabled(True)
-            self.flt_Max_spnBox.setEnabled(True)#  flt_Max_spnBox
+            self.ui.flt_Min_spnBox.setEnabled(True)
+            self.ui.flt_Max_spnBox.setEnabled(True)#  flt_Max_spnBox
         else:
             print("unlimited is False")
             self.limited_val = False
-            self.flt_Min_spnBox.setEnabled(False)
-            self.flt_Max_spnBox.setEnabled(False)
+            self.ui.flt_Min_spnBox.setEnabled(False)
+            self.ui.flt_Max_spnBox.setEnabled(False)
             #print("unlimited is False")
 
         return self.limited_val
    
-
-    def sigFunc_flt_min_func(self):
+    def flt_min_func(self):
         try:       
             
-            self.min_val = self.flt_Min_spnBox.value()
+            self.min_val = self.ui.flt_Min_spnBox.value()
             self.min_val = float(self.min_val)
             print(f"float min value: {self.min_val}")       
         except ValueError:
             print( 'no string values allowed' )
     
-    
-    def sigFunc_flt_max_func(self):
+    def flt_max_func(self):
         try:
-            self.max_val = self.flt_Max_spnBox.value()
+            self.max_val = self.ui.flt_Max_spnBox.value()
             self.max_val = float(self.max_val)
             print(f"float max value: {self.max_val}")
         except ValueError:
             print( 'no string values allowed' )
 
-
-    def sigFunc_flt_Apply_func(self):
+    def flt_Apply_func(self):
         if not self.float_text_list:
             print("No name provided for the float attribute")
             return
@@ -250,15 +279,22 @@ class crCustomAttrTool(QtWidgets.QWidget):
     
     # -------------------------------------------------------------------------
     # Enum functions
-    def sigFunc_enm_master_name_func(self):
-        self.master_name = self.enm_masterName_line.text()
+    def enm_master_name_func(self):
+        self.master_name = self.ui.enm_masterName_line.text()
         self.master_name = str(self.master_name)
         print(f"master name list: {self.master_name}")
     
     
-    def sigFunc_enm_add_name_subwidget_fun(self):
+    def enm_add_name_subwidget_fun(self):
         print("button clicked")
-        self.enm_subwidget = QtUiTools.QUiLoader().load(f'{A_driver}My_RIGGING/JmvsSCRIPTS/JMVS_Working_Scripts/JMVS_Rigging_Tools/custom_Attributes/Custom_attribute_tools/cstm_attr_ui/enm_sub_widget.ui')
+        enm_subwidget_path = UI_FILE = os.path.join(os_custom_directory_utils.create_directory(
+                "JmvsShelf_Rigging", "scripts", "attribute", "cstm_attr_ui"
+                ), "enm_sub_widget.ui")
+        
+        loader = QtUiTools.QUiLoader()
+        self.enm_subwidget = loader.load(enm_subwidget_path) 
+        # Create an instance of the widget class from the UI
+
         self.enm_vl_sublayout.addWidget(self.enm_subwidget)
 
         enm_lineEdit = self.enm_subwidget.findChild(QtWidgets.QLineEdit, "enm_line")
@@ -270,7 +306,6 @@ class crCustomAttrTool(QtWidgets.QWidget):
     def enm_handle_text_changed(self, line, text):
         if ' ' in text:
             self.enm_update_list(line)
-
 
     def enm_update_list(self, line):
         enm_text = line.text().strip() # Remove any leading/trailing spaces
@@ -299,7 +334,7 @@ class crCustomAttrTool(QtWidgets.QWidget):
         print("Updated list after removal: ", self.enm_text_list)
     
 
-    def sigFunc_enm_Apply_func(self):
+    def enm_Apply_func(self):
         result = ':'.join(self.enm_text_list)
 
         if not self.enm_text_list:
@@ -313,11 +348,11 @@ class crCustomAttrTool(QtWidgets.QWidget):
             print( f"No name provided for the enum switch attribute {e}" )
 
 
-def crCustomAttrTool_main():
-    app = QtWidgets.QApplication.instance()
-    if not app:
-        app = QtWidgets.QApplication([])
-    ui = crCustomAttrTool()
+def main():
+    ui = QtSamplerWindow()
     ui.show()
-    app.exec()
     return ui
+
+if __name__ == '__main__':
+    main()
+
