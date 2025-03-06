@@ -25,3 +25,5 @@ def add_float_attrib(flt, val, limited):
    
 
 #add_float_attrib(cmds.ls(attrib_list, [0,1] , False)
+
+
