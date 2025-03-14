@@ -11,4 +11,4 @@ def rename_list(new_name):
     
     print(f"renamed list = {renamed_list}")
 
-# rename_list("jnt_skn_")
+rename_list("new_name_")
