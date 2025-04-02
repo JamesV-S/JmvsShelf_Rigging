@@ -64,7 +64,7 @@ class add_pref_interface(QWidget):
             "..",  
             "style_interface",
             "CSS",
-            "style_shelf_ui_001.css"
+            "geoDB_style_sheet_001.css"
         )
 
         with open(stylesheet_path, "r") as file:

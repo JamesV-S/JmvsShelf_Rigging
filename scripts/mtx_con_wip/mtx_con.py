@@ -222,6 +222,8 @@ def matrix_constraint(driver, driven, con_type=None, mo=None):
     cmds.select(driven)
 
     return driver, driven
+selection = cmds.ls(sl=1, type="transform")
+driver, driven = matrix_constraint(selection[0], selection[1], con_type=["t"], mo=0)
 
 ''' USELESS 
 def check_all_true(dictionary):
