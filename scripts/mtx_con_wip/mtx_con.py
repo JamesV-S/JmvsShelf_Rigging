@@ -26,7 +26,7 @@ def add_matrix_attr(node, attr_name):
     cmds.addAttr(node, ln=attr_name, at="matrix")
 
 
-def constraint_type_matrix_setp(drivewn_obj, MM_node, BM_node, list):
+def constraint_type_matrix_setup(drivewn_obj, MM_node, BM_node, list):
     # matrix node on MM to storte driven's orig mtx
     orig_mtx_attr = f"orig_{drivewn_obj}_mtx"
     add_matrix_attr(MM_node, orig_mtx_attr)    
@@ -201,7 +201,7 @@ def matrix_constraint(driver, driven, con_type=None, mo=None):
     # PM connection
     connect_attr(f"{MM_mtxCon}{mtx_sum_plg}", f"{BM_mtxCon}{inp_mtx_plg}")
     if con_type:
-        constraint_type_matrix_setp(driven, MM_mtxCon, BM_mtxCon, con_type)
+        constraint_type_matrix_setup(driven, MM_mtxCon, BM_mtxCon, con_type)
 
     # driven connection
     connect_attr(f"{BM_mtxCon}{out_mtx_plg}", f"{driven}{opm_plg}")

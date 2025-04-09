@@ -3,9 +3,6 @@ import maya.api.OpenMaya as om
 import maya.cmds as cmds
 
 def OpmCleanTool():
-    
-    print("Is it working? aka OPM")
-
     TRANSFORM_NODETYPES = ["transform", "joint"]
 
     def has_non_default_locked_attributes(node):
@@ -45,12 +42,11 @@ def OpmCleanTool():
         reset_transforms(node)
 
     def bake_transform_to_offset_parent_matrix_selection():
-        print("New opm import strat")
         for node in cmds.ls(sl=True):
             bake_transform_to_offset_parent_matrix(node)
 
     bake_transform_to_offset_parent_matrix_selection()
-# END - https://gist.github.com/Muream/b4255ec4f690222d92fe794be249b7f1
+# END - code from https://gist.github.com/Muream/b4255ec4f690222d92fe794be249b7f1
 
 
 
