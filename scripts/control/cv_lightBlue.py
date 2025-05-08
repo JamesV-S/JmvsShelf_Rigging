@@ -4,12 +4,9 @@ import maya .cmds as cmds
 from pprint import pprint as pp
 
 def override_col_lightBlue():
-    sel = cmds. ls (selection=True)
+    sel = cmds.ls(selection=True)
 
-    shape = cmds.listRelatives ( sel, shapes = True )
-    #add = cmds.select( add=True )
-
-    for node in shape:
+    for node in sel:
         cmds. setAttr (node + ".overrideEnabled" ,True)
         cmds. setAttr (node + ".overrideColor" , 18)
         
