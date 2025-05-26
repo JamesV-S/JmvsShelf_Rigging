@@ -55,9 +55,9 @@ global proc shelf_Jmvs_Rig_Tools () {
     shelfButton
         -enableCommandRepeat 1
         -flexibleWidthType 3
-        -flexibleWidthValue 32
+        -flexibleWidthValue 41
         -enable 1
-        -width 39
+        -width 44
         -height 34
         -manage 1
         -visible 1
@@ -472,6 +472,76 @@ global proc shelf_Jmvs_Rig_Tools () {
         -manage 1
         -visible 1
         -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cvLightB" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrvLB" 
+        -overlayLabelColor 0 0 0 
+        -overlayLabelBackColor 0 1 1 1 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_blue\n\nimportlib.reload(cv_blue)\ncv_blue.override_colour_lightBlue()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cvGreen" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrvG" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0.550481 0 0.5 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_green\n\nimportlib.reload(cv_green)\ncv_green.override_colour_muted_green()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
         -annotation "crv turns blue" 
         -enableBackground 0
         -backgroundColor 0 0 0 
@@ -492,7 +562,42 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_blue\n\nimportlib.reload(cv_blue)\ncv_blue.override_color_blu()\n" 
+        -command "import importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_blue\n\nimportlib.reload(cv_blue)\ncv_blue.override_color_blu()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "User Script" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "cvPaleBlue" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CrvPB" 
+        -overlayLabelColor 1 1 1 
+        -overlayLabelBackColor 0 0 1 0.5 
+        -image "circle.png" 
+        -image1 "circle.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_blue\n\nimportlib.reload(cv_blue)\ncv_blue.override_color_pale_blu()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -562,7 +667,7 @@ global proc shelf_Jmvs_Rig_Tools () {
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_red\n\nimportlib.reload(cv_red)\ncv_red.override_color_red()\n\n" 
+        -command "import importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_red\n\nimportlib.reload(cv_red)\ncv_red.override_colour_red()\n\n" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
@@ -582,22 +687,22 @@ global proc shelf_Jmvs_Rig_Tools () {
         -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -align "center" 
-        -label "cvLightB" 
+        -label "cvPaleRed" 
         -labelOffset 0
         -rotation 0
         -flipX 0
         -flipY 0
         -useAlpha 1
         -font "plainLabelFont" 
-        -imageOverlayLabel "CrvLB" 
+        -imageOverlayLabel "CrvPR" 
         -overlayLabelColor 0 0 0 
-        -overlayLabelBackColor 0 1 1 1 
+        -overlayLabelBackColor 1 0 0 0.5 
         -image "circle.png" 
         -image1 "circle.png" 
         -style "iconOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_lightBlue\n\nimportlib.reload(cv_lightBlue)\ncv_lightBlue.override_col_lightBlue()\n\n" 
+        -command "import importlib\nfrom JmvsShelf_Rigging.scripts.control import cv_red\n\nimportlib.reload(cv_red)\ncv_red.override_colour_pale_red()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1
