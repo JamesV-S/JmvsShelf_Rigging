@@ -1,8 +1,4 @@
-#------------------------------------------------------------
-#  replace control script
-#------------------------------------------------------------
 import maya.cmds as cmds
-
 
 def my_replace_ctrl():
         curves = cmds.ls(sl=1)

@@ -3,6 +3,14 @@
 import maya .cmds as cmds
 from pprint import pprint as pp
 
+'''
+import importlib
+from JmvsShelf_Rigging.scripts.control import cv_blue
+
+importlib.reload(cv_blue)
+cv_blue.override_colour_lightBlue()
+'''
+
 def override_color_blu():
     sel = cmds.ls(selection=True)
 

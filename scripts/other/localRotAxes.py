@@ -19,7 +19,7 @@ def setAxisDisplay():
     if not selectionCheck:
         cmds.error("Please select the root joint.")
     else:
-        rootJnt = cmds.ls(sl=1)#, type="joint")
+        rootJnt = cmds.ls(sl=1)
     
     cmds.select(rootJnt, hi=1)
     jointList = cmds.ls(sl=1, type='transform')#, type="joint")
