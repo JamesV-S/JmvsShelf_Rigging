@@ -274,6 +274,41 @@ global proc shelf_Jmvs_Rig_Tools () {
         -commandRepeatable 1
         -flat 1
     ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Cycles through wireframe displays" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Wireframe_cycle" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "WIRE" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "wire.png" 
+        -image1 "wire.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import viewport_cycle\n\nimportlib.reload(viewport_cycle)\nviewport_cycle.cycle_viewport()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
     separator
         -enable 1
         -width 10

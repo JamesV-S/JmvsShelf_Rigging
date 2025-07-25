@@ -43,12 +43,14 @@ def run_jmvsShelf_Rigging_batch():
     except Exception as e:
         print(f"Error with downloading or running the batch script: {e}")
 
-run_jmvsShelf_Rigging_batch()
+# run_jmvsShelf_Rigging_batch()
 
 
 def deferred_setup_tasks():
-    pass # Any tasks for AFTER the ui of maya has loaded.
+    # Any tasks for AFTER the ui of maya has loaded.
     print("Deferred setup done.")
+    # turn on x-ray joints!
+    cmds.modelEditor("modelPanel1", jointXray=True)
 deferred_setup_tasks()
 
 
