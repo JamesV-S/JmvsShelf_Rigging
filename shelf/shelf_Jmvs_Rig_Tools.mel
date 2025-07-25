@@ -284,6 +284,41 @@ global proc shelf_Jmvs_Rig_Tools () {
         -manage 1
         -visible 1
         -preventOverride 0
+        -annotation "Create a display layer of the objects selected and reference the layer." 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Cr_dispLayer_ref" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "LAYER" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "layeredTexture.svg" 
+        -image1 "layeredTexture.svg" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\nimport importlib\nfrom JmvsShelf_Rigging.scripts.other import cr_display_layer\n\nimportlib.reload(cr_display_layer)\ncr_display_layer.cr_new_display_layer()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
         -annotation "Cycles through wireframe displays" 
         -enableBackground 0
         -backgroundColor 0 0 0 
