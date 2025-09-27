@@ -101,7 +101,7 @@
                                 {
                                     "tabWidget": {
                                         "selectedIndex": 0,
-                                        "controlWidth": 1494,
+                                        "controlWidth": 981,
                                         "controlHeight": 839,
                                         "collapsed": false,
                                         "controls": [
@@ -120,7 +120,7 @@
                                                 "closed": false,
                                                 "widthProperty": "free",
                                                 "heightProperty": "free",
-                                                "controlWidth": 1494,
+                                                "controlWidth": 981,
                                                 "controlHeight": 839,
                                                 "initCallback": "mainPaneStateCallback",
                                                 "stateString": "global string $gMainPane; paneLayout -edit -configuration single $gMainPane;if(`modelPanel -exists modelPanel4`){ modelPanel -edit -parent $gMainPane modelPanel4; paneLayout -edit -setPane modelPanel4 1 $gMainPane;}"
@@ -135,7 +135,7 @@
                                             {
                                                 "tabWidget": {
                                                     "selectedIndex": 1,
-                                                    "controlWidth": 460,
+                                                    "controlWidth": 574,
                                                     "controlHeight": 461,
                                                     "collapsed": false,
                                                     "controls": [
@@ -172,7 +172,7 @@
                                                             "closed": false,
                                                             "widthProperty": "preferred",
                                                             "heightProperty": "free",
-                                                            "controlWidth": 460,
+                                                            "controlWidth": 574,
                                                             "controlHeight": 461
                                                         },
                                                         {
@@ -202,7 +202,7 @@
                                             {
                                                 "tabWidget": {
                                                     "selectedIndex": 0,
-                                                    "controlWidth": 477,
+                                                    "controlWidth": 591,
                                                     "controlHeight": 355,
                                                     "collapsed": false,
                                                     "controls": [
@@ -221,7 +221,7 @@
                                                             "closed": false,
                                                             "widthProperty": "preferred",
                                                             "heightProperty": "free",
-                                                            "controlWidth": 477,
+                                                            "controlWidth": 591,
                                                             "controlHeight": 355,
                                                             "initCallback": "outlinerStateCallback",
                                                             "stateString": "outlinerEditor -e -docTag \"isolOutln_fromSeln\" -showShapes 0 -showAssignedMaterials 0 -showTimeEditor 1 -showReferenceNodes 1 -showReferenceMembers 1 -showAttributes 0 -showConnected 0 -showAnimCurvesOnly 0 -showMuteInfo 0 -organizeByLayer 1 -organizeByClip 1 -showAnimLayerWeight 1 -autoExpandLayers 1 -autoExpand 0 -showDagOnly 1 -showAssets 1 -showContainedOnly 1 -showPublishedAsConnected 0 -showParentContainers 0 -showContainerContents 1 -ignoreDagHierarchy 0 -expandConnections 0 -showUpstreamCurves 1 -showUnitlessCurves 1 -showCompounds 1 -showLeafs 1 -showNumericAttrsOnly 0 -highlightActive 1 -autoSelectNewObjects 0 -doNotSelectNewObjects 0 -dropIsParent 1 -transmitFilters 0 -setFilter \"defaultSetFilter\" -showSetMembers 1 -allowMultiSelection 1 -alwaysToggleSelect 0 -directSelect 0 -isSet 0 -isSetMember 0 -showUfeItems 1 -displayMode \"DAG\" -expandObjects 0 -setsIgnoreFilters 1 -containersIgnoreFilters 0 -editAttrName 0 -showAttrValues 0 -highlightSecondary 0 -showUVAttrsOnly 0 -showTextureNodesOnly 0 -attrAlphaOrder \"default\" -animLayerFilterOptions \"allAffecting\" -sortOrder \"none\" -longNames 0 -niceNames 1 -selectCommand \"print(\\\"\\\")\" -showNamespace 1 -showPinIcons 0 -mapMotionTrails 0 -ignoreHiddenAttribute 0 -ignoreOutlinerColor 0 -renderFilterVisible 0 -renderFilterIndex 0 -selectionOrder \"chronological\" -expandAttribute 0 -ufeFilter \"MaterialX\" \"Hidden\" -ufeFilterValue 1 $editorName"
@@ -234,8 +234,8 @@
                                 },
                                 {
                                     "tabWidget": {
-                                        "selectedIndex": 0,
-                                        "controlWidth": 527,
+                                        "selectedIndex": 1,
+                                        "controlWidth": 926,
                                         "controlHeight": 822,
                                         "collapsed": false,
                                         "controls": [
@@ -255,6 +255,24 @@
                                                 "widthProperty": "free",
                                                 "heightProperty": "free",
                                                 "controlWidth": 527,
+                                                "controlHeight": 822
+                                            },
+                                            {
+                                                "objectName": "nodeEditorPanel1Window",
+                                                "title": "Node Editor",
+                                                "uiScript": "if(!`panel -q -exists nodeEditorPanel1`) {\n\tint $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tstring $panelName = \"nodeEditorPanel1\";\n\tscriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  nodeEditorPanel1;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -connectedGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 1\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -showUnitConversions 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n} else {\n\tscriptedPanel -e -unParent nodeEditorPanel1;\n}\nscriptedPanel -e -parent nodeEditorPanel1Window nodeEditorPanel1;\n",
+                                                "retain": false,
+                                                "deleteLater": true,
+                                                "loadImmediately": false,
+                                                "checkPlugins": false,
+                                                "actLikeMayaUIElement": false,
+                                                "layoutDirectionCallback": "",
+                                                "layoutDirection": "horizontal",
+                                                "tabDirection": 0,
+                                                "closed": false,
+                                                "widthProperty": "free",
+                                                "heightProperty": "free",
+                                                "controlWidth": 926,
                                                 "controlHeight": 822
                                             }
                                         ]
@@ -312,7 +330,7 @@
                                     "closed": true,
                                     "widthProperty": "free",
                                     "heightProperty": "fixed",
-                                    "controlWidth": 1254,
+                                    "controlWidth": 640,
                                     "controlHeight": 36
                                 }
                             ]
@@ -323,24 +341,6 @@
         }
     ],
     "closedControls": [
-        {
-            "objectName": "polyTexturePlacementPanel1Window",
-            "posX": 341,
-            "posY": 336,
-            "controlHeight": 389,
-            "controlWidth": 454,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "ToolSettings",
-            "posX": 635,
-            "posY": 649,
-            "controlHeight": 238,
-            "controlWidth": 460,
-            "widthProperty": "preferred",
-            "heightProperty": "free"
-        },
         {
             "objectName": "UVToolkitDockControl",
             "posX": 803,
@@ -357,6 +357,24 @@
             "controlHeight": 527,
             "controlWidth": 743,
             "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "polyTexturePlacementPanel1Window",
+            "posX": 341,
+            "posY": 336,
+            "controlHeight": 389,
+            "controlWidth": 454,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "ToolSettings",
+            "posX": 635,
+            "posY": 649,
+            "controlHeight": 238,
+            "controlWidth": 460,
+            "widthProperty": "preferred",
             "heightProperty": "free"
         },
         {
